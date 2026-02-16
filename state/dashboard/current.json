@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T19:37:54.432Z",
+  "updated": "2026-02-16T19:59:58.585Z",
   "stats": {
     "A": {
       "totalRuns": 0,
@@ -15,12 +15,12 @@
     },
     "B": {
       "totalRuns": 10,
-      "totalScan": 4064,
-      "totalPass": 0,
+      "totalScan": 4180,
+      "totalPass": 9,
       "totalReview": 0,
-      "totalResolved": 0,
+      "totalResolved": 1,
       "totalDrop": 157,
-      "totalOverpriced": 0,
+      "totalOverpriced": 8,
       "totalMemoryHits": 0,
       "totalMemoryStale": 0,
       "totalVariantBlocked": 0
@@ -29,6 +29,23 @@
   "runs": {
     "A": [],
     "B": [
+      {
+        "timestamp": "2026-02-16T19:46:41.014Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-19-46-08",
+        "scan": 476,
+        "pass": 9,
+        "review": 0,
+        "resolved": 1,
+        "drop": 0,
+        "overpriced": 8,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
       {
         "timestamp": "2026-02-16T19:30:39.642Z",
         "type": "RUN_SUMMARY",
@@ -170,23 +187,6 @@
         "type": "RUN_SUMMARY",
         "lane": "B",
         "runId": "lane-b-2026-02-16-18-59-47",
-        "scan": 360,
-        "pass": 0,
-        "review": 0,
-        "resolved": 0,
-        "drop": 0,
-        "overpriced": 0,
-        "relookupCorrections": 0,
-        "variantAutoResolved": 0,
-        "memoryHits": 0,
-        "memoryStale": 0,
-        "variantAutoResolveBlocked": 0
-      },
-      {
-        "timestamp": "2026-02-16T18:59:17.239Z",
-        "type": "RUN_SUMMARY",
-        "lane": "B",
-        "runId": "lane-b-2026-02-16-18-58-56",
         "scan": 360,
         "pass": 0,
         "review": 0,
@@ -376,6 +376,18 @@
           "source": "relookup"
         },
         {
+          "itemId": "v1|397410208829|0",
+          "title": "Scyther 10/64 Jungle Holo 1st Edition CGC 2 Good 5",
+          "price": 39.99,
+          "pcPrice": 52,
+          "edgePct": 23.1,
+          "rankScore": 23.1,
+          "reason": "gates_pass",
+          "flags": [],
+          "lastSeen": "2026-02-16T19:46:41.014Z",
+          "source": "gates"
+        },
+        {
           "itemId": "v1|298025198779|0",
           "title": "2019 POKEMON SUN & MOON HIDDEN FATES #SV1 SCYTHER-",
           "price": 19.99,
@@ -389,6 +401,30 @@
           ],
           "lastSeen": "2026-02-16T15:30:22.720Z",
           "source": "relookup"
+        },
+        {
+          "itemId": "v1|326714972420|0",
+          "title": "CGC 9.5 MINT+ Hitmonlee 1999 Fossil 1st Edition 22",
+          "price": 49.99,
+          "pcPrice": 42,
+          "edgePct": -19,
+          "rankScore": -19.02,
+          "reason": "gates_pass",
+          "flags": [],
+          "lastSeen": "2026-02-16T19:46:41.013Z",
+          "source": "gates"
+        },
+        {
+          "itemId": "v1|117020879315|0",
+          "title": "1999 Pokemon Fossil #7 Hitmonlee Holo 1st Edition ",
+          "price": 49.99,
+          "pcPrice": 42,
+          "edgePct": -19,
+          "rankScore": -19.02,
+          "reason": "gates_pass",
+          "flags": [],
+          "lastSeen": "2026-02-16T19:46:41.014Z",
+          "source": "gates"
         },
         {
           "itemId": "v1|287124134914|0",
@@ -413,6 +449,78 @@
           "flags": [],
           "lastSeen": "2026-02-16T10:52:48.099Z",
           "source": "relookup"
+        },
+        {
+          "itemId": "v1|286368072682|0",
+          "title": "1999 Magmar Pokémon Fossil 1st Edition 39/62 Near ",
+          "price": 13.99,
+          "pcPrice": 5.83,
+          "edgePct": -140,
+          "rankScore": -139.97,
+          "reason": "gates_pass",
+          "flags": [],
+          "lastSeen": "2026-02-16T19:46:41.014Z",
+          "source": "gates"
+        },
+        {
+          "itemId": "v1|336423117080|0",
+          "title": "Pokémon TCG Magmar 39/62 Fossil 1st Edition Uncomm",
+          "price": 15,
+          "pcPrice": 5.83,
+          "edgePct": -157.3,
+          "rankScore": -157.29,
+          "reason": "gates_pass",
+          "flags": [],
+          "lastSeen": "2026-02-16T19:46:41.014Z",
+          "source": "gates"
+        },
+        {
+          "itemId": "v1|226735826256|0",
+          "title": "CGC 8 NM/MINT Magmar Fossil 1st Edition Uncommon P",
+          "price": 16.5,
+          "pcPrice": 5.83,
+          "edgePct": -183,
+          "rankScore": -183.02,
+          "reason": "gates_pass",
+          "flags": [],
+          "lastSeen": "2026-02-16T19:46:41.014Z",
+          "source": "gates"
+        },
+        {
+          "itemId": "v1|326241567210|0",
+          "title": "Pokemon 1999 Fossil 1ST Edition MAGMAR #39 PSA 6 R",
+          "price": 19.99,
+          "pcPrice": 5.83,
+          "edgePct": -242.9,
+          "rankScore": -242.88,
+          "reason": "gates_pass",
+          "flags": [],
+          "lastSeen": "2026-02-16T19:46:41.014Z",
+          "source": "gates"
+        },
+        {
+          "itemId": "v1|356718348260|0",
+          "title": "Magmar 39/62 PSA 6 1st Edition 1999 Pokemon Fossil",
+          "price": 20,
+          "pcPrice": 5.83,
+          "edgePct": -243.1,
+          "rankScore": -243.05,
+          "reason": "gates_pass",
+          "flags": [],
+          "lastSeen": "2026-02-16T19:46:41.014Z",
+          "source": "gates"
+        },
+        {
+          "itemId": "v1|306202000641|0",
+          "title": "CGC 8 NM/MINT Magmar Fossil 1st Edition Uncommon P",
+          "price": 20,
+          "pcPrice": 5.83,
+          "edgePct": -243.1,
+          "rankScore": -243.05,
+          "reason": "gates_pass",
+          "flags": [],
+          "lastSeen": "2026-02-16T19:46:41.014Z",
+          "source": "gates"
         }
       ],
       "review": [],
@@ -1681,8 +1789,8 @@
     }
   },
   "summary": {
-    "totalItemsTracked": 14,
-    "readyCount": 14,
+    "totalItemsTracked": 23,
+    "readyCount": 23,
     "reviewCount": 0,
     "badLines": 0
   }
