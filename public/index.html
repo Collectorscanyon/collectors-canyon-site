@@ -737,35 +737,40 @@
   </footer>
 
   <script>
-    const API_BASE = window.PUBLIC_API_BASE || '';
-    const endpoint = `${API_BASE}/api/public/watchlist`;
+    const DEFAULT_API = '';
     
     function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
     
+    async function loadConfig() {
+      try {
+        const res = await fetch('/config.json', { cache: 'no-store' });
+        if (res.ok) return await res.json();
+      } catch (e) {}
+      return { API_BASE: DEFAULT_API, FALLBACK_ENABLED: true };
+    }
+    
+    async function fetchWatchlist(config) {
+      // Try live API first
+      if (config.API_BASE) {
+        try {
+          const res = await fetch(`${config.API_BASE}/api/public/watchlist`, { cache: 'no-store' });
+          if (res.ok) return await res.json();
+        } catch (e) {
+          console.log('Live API unavailable, using fallback...');
+        }
+      }
+      
+      // Static fallback
+      const res = await fetch('/api/public.json', { cache: 'no-store' });
+      if (res.ok) return await res.json();
+      
+      throw new Error('Both live and fallback failed');
+    }
+    
     async function loadWatchlist() {
-      try {
-        // Try API first (for live ops backend)
-        const res = await fetch(`${API_BASE}/api/public/watchlist`, { cache: "no-store" });
-        if (res.ok) {
-          const data = await res.json();
-          return data.watchlist || [];
-        }
-      } catch (e) {
-        console.log('API not available, trying static file...');
-      }
-      
-      // Fallback: try local static file
-      try {
-        const res = await fetch('/api/public.json');
-        if (res.ok) {
-          const data = await res.json();
-          return data.watchlist || [];
-        }
-      } catch (e) {
-        console.error('Failed to load watchlist:', e);
-      }
-      
-      return [];
+      const config = await loadConfig();
+      const data = await fetchWatchlist(config);
+      return data.watchlist || [];
     }
     
     function formatPct(n) {
