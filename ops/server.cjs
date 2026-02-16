@@ -15,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3847;
-const WORKSPACE = process.env.WORKSPACE || (process.env.RENDER ? '/opt/render/project/src' : process.cwd());
+const WORKSPACE = process.env.WORKSPACE || '/home/perry/clawd/CARDSHARK_EMPIRE';
 const DATA_DIR = process.env.OPS_DATA_DIR || WORKSPACE;
 const AUTH_TOKEN = process.env.OPS_DASHBOARD_TOKEN || null;
 const READ_ONLY = process.env.OPS_READ_ONLY === 'true';
@@ -507,10 +507,13 @@ const HTML = `<!DOCTYPE html>
         return 'https://www.google.com/search?q=' + search;
       };
       
-      // Helper to generate eBay search URL (actual listing URLs not captured in pipeline)
-      const getEbayUrl = (title) => {
-        if (!title) return '#';
-        const slug = encodeURIComponent(title.replace(/[^a-zA-Z0-9]/g, ' ').trim().replace(/  +/g, '+'));
+      // Helper to generate eBay search URL - use actual listing URL if available
+      const getEbayUrl = (item) => {
+        // Direct listing URL takes priority
+        if (item.url) return item.url;
+        // Fallback to search
+        if (!item.title) return '#';
+        const slug = encodeURIComponent(item.title.replace(/[^a-zA-Z0-9]/g, ' ').trim().replace(/  +/g, '+'));
         return 'https://www.ebay.com/sch/i.html?_nkw=' + slug.substring(0, 40);
       };
       
@@ -519,9 +522,15 @@ const HTML = `<!DOCTYPE html>
         const edgeClass = edge >= 0 ? 'positive' : 'negative';
         const edgePrefix = edge >= 0 ? '+' : '';
         const pcUrl = getPcUrl(item.title);
-        const ebayUrl = getEbayUrl(item.title);
+        const ebayUrl = getEbayUrl(item);
         
-        return '<div class="queue-item">' +
+        // Click opens eBay if URL exists, otherwise does nothing
+        const clickHandler = item.url 
+          ? 'onclick="event.stopPropagation(); window.open(\'' + item.url + '\', \'_blank\')"'
+          : '';
+        const cursorStyle = item.url ? 'cursor: pointer;' : '';
+        
+        return '<div class="queue-item" style="' + cursorStyle + '" ' + clickHandler + '>' +
           '<div class="info">' +
             '<div class="title">' + escapeHtml(item.title?.substring(0, 60) || '') + '</div>' +
             '<div class="meta">' + (item.reason || '') + ' • ' + (item.source || '') + '</div>' +

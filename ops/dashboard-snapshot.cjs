@@ -100,6 +100,7 @@ async function buildSnapshot() {
         itemId: ev.itemId,
         title: ev.title,
         price: ev.price,
+        url: ev.url || null,
         pcPrice: ev.pc?.price,
         edgePct: ev.edgePct,
         rankScore: ev.rankScore,
