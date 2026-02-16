@@ -11,9 +11,9 @@ services:
       - key: PORT
         value: 10000
       - key: WORKSPACE
-        value: /home/perry/clawd/CARDSHARK_EMPIRE
+        value: /opt/render/project/src
       - key: OPS_DATA_DIR
-        value: /home/perry/clawd/CARDSHARK_EMPIRE
+        value: /opt/render/project/src
       - key: OPS_READ_ONLY
         value: "true"
       - key: CORS_ORIGIN
