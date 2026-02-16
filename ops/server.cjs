@@ -15,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3847;
-const WORKSPACE = process.env.WORKSPACE || (process.env.RENDER ? '/opt/render/project/src' : process.cwd());
+const WORKSPACE = process.env.WORKSPACE || '/home/perry/clawd/CARDSHARK_EMPIRE';
 const DATA_DIR = process.env.OPS_DATA_DIR || WORKSPACE;
 const AUTH_TOKEN = process.env.OPS_DASHBOARD_TOKEN || null;
 const READ_ONLY = process.env.OPS_READ_ONLY === 'true';
@@ -500,14 +500,16 @@ const HTML = `<!DOCTYPE html>
         return;
       }
       
-      // Helper to generate PC URL from title
+      // Helper to generate PC URL from title - try different formats
       const getPcUrl = (title) => {
         if (!title) return '#';
-        const slug = encodeURIComponent(title.replace(/[^a-zA-Z0-9]/g, ' ').trim().replace(/  +/g, '+'));
-        return 'https://www.pricecharting.com/search?q=' + slug.substring(0, 50);
+        // Extract Pokemon name and set info for better search
+        const search = encodeURIComponent(title.replace(/[^a-zA-Z0-9 ]/g, '').trim());
+        // Try the main site with search hash - often works better
+        return 'https://www.pricecharting.com/#search=' + search.substring(0, 30);
       };
       
-      // Helper to generate eBay search URL
+      // Helper to generate eBay search URL (actual listing URLs not captured in pipeline)
       const getEbayUrl = (title) => {
         if (!title) return '#';
         const slug = encodeURIComponent(title.replace(/[^a-zA-Z0-9]/g, ' ').trim().replace(/  +/g, '+'));
@@ -521,7 +523,7 @@ const HTML = `<!DOCTYPE html>
         const pcUrl = getPcUrl(item.title);
         const ebayUrl = getEbayUrl(item.title);
         
-        return '<div class="queue-item clickable" onclick="event.stopPropagation(); window.open(\\'' + ebayUrl + '\\', \\'_blank\\')">' +
+        return '<div class="queue-item">' +
           '<div class="info">' +
             '<div class="title">' + escapeHtml(item.title?.substring(0, 60) || '') + '</div>' +
             '<div class="meta">' + (item.reason || '') + ' • ' + (item.source || '') + '</div>' +
@@ -532,8 +534,9 @@ const HTML = `<!DOCTYPE html>
             '<div class="vs">vs PC $' + (item.pcPrice || '-') + '</div>' +
             '<div class="edge ' + edgeClass + '">' + edgePrefix + edge + '%</div>' +
           '</div>' +
-          '<div class="item-actions" onclick="event.stopPropagation()">' +
-            '<a href="' + pcUrl + '" target="_blank" class="btn-link" title="Open in PriceCharting">📊</a>' +
+          '<div class="item-actions">' +
+            '<a href="' + pcUrl + '" target="_blank" class="btn-link" title="PriceCharting">📊</a>' +
+            '<a href="' + ebayUrl + '" target="_blank" class="btn-link" title="eBay Search">🔍</a>' +
             '<button class="btn approve" onclick="takeAction(\\'' + item.itemId + '\\', \\'PASS\\')">✓</button>' +
             '<button class="btn drop" onclick="takeAction(\\'' + item.itemId + '\\', \\'DROP\\')">✗</button>' +
           '</div>' +
