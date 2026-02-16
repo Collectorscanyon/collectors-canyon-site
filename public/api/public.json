@@ -1,193 +1,429 @@
 {
-  "version": "1.0",
-  "updated": "2026-02-16T17:33:46.382Z",
-  "watchlist": [
-    {
-      "title": "2020 Pokemon Charizard V 019/189 Full Art Darkness",
-      "set": "Unknown",
-      "cardNumber": "",
-      "pokemon": "",
-      "grade": null,
-      "price": 24.99,
-      "pcPrice": 5254.54,
-      "edgePct": 99.5,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T16:30:18.873Z"
-    },
-    {
-      "title": "PSA 9 Charizard ex #074 - Scarlet & Violet Promo P",
-      "set": "Unknown",
-      "cardNumber": "074",
-      "pokemon": "PSA ",
-      "grade": "PSA 9",
-      "price": 34.99,
-      "pcPrice": 5254.54,
-      "edgePct": 99.3,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T16:30:18.865Z"
-    },
-    {
-      "title": "PSA 9 2023 Pokemon SWSH Radiant Charizard 020/159 ",
-      "set": "Unknown",
-      "cardNumber": "",
-      "pokemon": "PSA ",
-      "grade": "PSA 9",
-      "price": 34.99,
-      "pcPrice": 5254.54,
-      "edgePct": 99.3,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T17:12:56.046Z"
-    },
-    {
-      "title": "PSA 7 Charizard VSTAR SWSH262 🔥 Pokémon SWSH: Swo",
-      "set": "Unknown",
-      "cardNumber": "",
-      "pokemon": "PSA ",
-      "grade": "PSA 7",
-      "price": 45,
-      "pcPrice": 5254.54,
-      "edgePct": 99.1,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T15:30:22.720Z"
-    },
-    {
-      "title": "Pokémon TCG Alakazam EX Promo PSA 8",
-      "set": "Unknown",
-      "cardNumber": "",
-      "pokemon": "",
-      "grade": "PSA 8",
-      "price": 15,
-      "pcPrice": 374.85,
-      "edgePct": 96,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T15:30:22.720Z"
-    },
-    {
-      "title": "2025 POKEMON MEP EN-ME BLACK STAR PROMO #009 ALAKA",
-      "set": "Unknown",
-      "cardNumber": "009",
-      "pokemon": "",
-      "grade": null,
-      "price": 35,
-      "pcPrice": 374.85,
-      "edgePct": 90.7,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T15:30:22.720Z"
-    },
-    {
-      "title": "Pokémon Alakazam TCG Base Set 2 Holo Rare Card 1/1",
-      "set": "Unknown",
-      "cardNumber": "",
-      "pokemon": "",
-      "grade": null,
-      "price": 42,
-      "pcPrice": 374.85,
-      "edgePct": 88.8,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T15:30:22.720Z"
-    },
-    {
-      "title": "Pokemon Alakazam Base Set Unlimited Holo Rare 001/",
-      "set": "Unknown",
-      "cardNumber": "",
-      "pokemon": "",
-      "grade": null,
-      "price": 42,
-      "pcPrice": 374.85,
-      "edgePct": 88.8,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T15:30:22.720Z"
-    },
-    {
-      "title": "Pokemon Alakazam 1/102 Base Set Holo Vintage PSA 6",
-      "set": "Unknown",
-      "cardNumber": "",
-      "pokemon": "",
-      "grade": "PSA 6",
-      "price": 44.99,
-      "pcPrice": 374.85,
-      "edgePct": 88,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T15:30:22.720Z"
-    },
-    {
-      "title": "PSA 2 Alakazam Holo 1999 Pokemon Base Set 1/102 Po",
-      "set": "Unknown",
-      "cardNumber": "",
-      "pokemon": "PSA ",
-      "grade": "PSA 2",
-      "price": 49.99,
-      "pcPrice": 374.85,
-      "edgePct": 86.7,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T15:30:22.720Z"
-    },
-    {
-      "title": "2011 Pokemon Call of Legends #58 Hitmonlee C BGS 9",
-      "set": "Unknown",
-      "cardNumber": "58",
-      "pokemon": "",
-      "grade": "BGS 9",
-      "price": 13.99,
-      "pcPrice": 42,
-      "edgePct": 66.7,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T15:30:22.720Z"
-    },
-    {
-      "title": "2019 POKEMON SUN & MOON HIDDEN FATES #SV1 SCYTHER-",
-      "set": "HIDDEN FATES",
-      "cardNumber": "",
-      "pokemon": "",
-      "grade": null,
-      "price": 19.99,
-      "pcPrice": 52,
-      "edgePct": 61.6,
-      "bucket": "READY",
-      "source": "eBay",
-      "updated": "2026-02-16T15:30:22.720Z"
-    },
-    {
-      "title": "LUGIA V #138 PSA 9 FULL ART SILVER TEMPEST 2022 PO",
-      "set": "SILVER TEMPEST",
-      "cardNumber": "138",
-      "pokemon": "LUGIA V",
-      "grade": "PSA 9",
-      "price": 29.99,
-      "pcPrice": 22.13,
-      "edgePct": -35.5,
-      "bucket": "REVIEW",
-      "source": "eBay",
-      "updated": "2026-02-16T10:52:48.099Z"
-    },
-    {
-      "title": "2021 POKEMON CELEBRATIONS #022 LUGIA PSA 9 Mint",
-      "set": "CELEBRATIONS",
-      "cardNumber": "022",
-      "pokemon": "",
-      "grade": "PSA 9",
-      "price": 19.99,
-      "pcPrice": 13.5,
-      "edgePct": -48.1,
-      "bucket": "REVIEW",
-      "source": "eBay",
-      "updated": "2026-02-16T10:52:48.099Z"
-    }
-  ],
+  "updated": "2026-02-16T18:05:55.777Z",
   "stats": {
-    "totalWatched": 14,
-    "ready": 12,
-    "review": 2
+    "A": {
+      "totalRuns": 0,
+      "totalScan": 0,
+      "totalPass": 0,
+      "totalReview": 0,
+      "totalResolved": 0,
+      "totalDrop": 0,
+      "totalOverpriced": 0,
+      "totalMemoryHits": 0,
+      "totalMemoryStale": 0,
+      "totalVariantBlocked": 0
+    },
+    "B": {
+      "totalRuns": 10,
+      "totalScan": 1385,
+      "totalPass": 12,
+      "totalReview": 12,
+      "totalResolved": 0,
+      "totalDrop": 3,
+      "totalOverpriced": 0,
+      "totalMemoryHits": 0,
+      "totalMemoryStale": 0,
+      "totalVariantBlocked": 0
+    }
+  },
+  "runs": {
+    "A": [],
+    "B": [
+      {
+        "timestamp": "2026-02-16T17:30:20.775Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-17-30-05",
+        "scan": 237,
+        "pass": 0,
+        "review": 0,
+        "resolved": 0,
+        "drop": 0,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
+      {
+        "timestamp": "2026-02-16T17:13:40.438Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-17-13-25",
+        "scan": 237,
+        "pass": 0,
+        "review": 0,
+        "resolved": 0,
+        "drop": 0,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
+      {
+        "timestamp": "2026-02-16T17:12:56.047Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-17-12-40",
+        "scan": 237,
+        "pass": 1,
+        "review": 1,
+        "resolved": 0,
+        "drop": 0,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
+      {
+        "timestamp": "2026-02-16T16:30:18.873Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-16-30-04",
+        "scan": 237,
+        "pass": 2,
+        "review": 2,
+        "resolved": 0,
+        "drop": 0,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
+      {
+        "timestamp": "2026-02-16T15:30:22.721Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-15-30-05",
+        "scan": 237,
+        "pass": 9,
+        "review": 9,
+        "resolved": 0,
+        "drop": 0,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
+      {
+        "timestamp": "2026-02-16T14:30:09.140Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-14-30-03",
+        "scan": 40,
+        "pass": 0,
+        "review": 0,
+        "resolved": 0,
+        "drop": 0,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
+      {
+        "timestamp": "2026-02-16T13:30:13.521Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-13-30-08",
+        "scan": 40,
+        "pass": 0,
+        "review": 0,
+        "resolved": 0,
+        "drop": 0,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
+      {
+        "timestamp": "2026-02-16T12:30:10.288Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-12-30-04",
+        "scan": 40,
+        "pass": 0,
+        "review": 0,
+        "resolved": 0,
+        "drop": 1,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
+      {
+        "timestamp": "2026-02-16T11:30:12.594Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-11-30-07",
+        "scan": 40,
+        "pass": 0,
+        "review": 0,
+        "resolved": 0,
+        "drop": 1,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
+      {
+        "timestamp": "2026-02-16T10:53:31.396Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-10-53-26",
+        "scan": 40,
+        "pass": 0,
+        "review": 0,
+        "resolved": 0,
+        "drop": 1,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      }
+    ]
+  },
+  "queues": {
+    "A": {
+      "ready": [],
+      "review": [],
+      "overpriced": [],
+      "hold": []
+    },
+    "B": {
+      "ready": [
+        {
+          "itemId": "v1|127686747978|0",
+          "title": "2020 Pokemon Charizard V 019/189 Full Art Darkness",
+          "price": 24.99,
+          "pcPrice": 5254.54,
+          "edgePct": 99.5,
+          "rankScore": 34.83,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T16:30:18.873Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|327002755793|0",
+          "title": "PSA 9 Charizard ex #074 - Scarlet & Violet Promo P",
+          "price": 34.99,
+          "pcPrice": 5254.54,
+          "edgePct": 99.3,
+          "rankScore": 34.77,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T16:30:18.865Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|157681215543|0",
+          "title": "PSA 9 2023 Pokemon SWSH Radiant Charizard 020/159 ",
+          "price": 34.99,
+          "pcPrice": 5254.54,
+          "edgePct": 99.3,
+          "rankScore": 34.77,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T17:12:56.046Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|157685194774|0",
+          "title": "PSA 7 Charizard VSTAR SWSH262 🔥 Pokémon SWSH: Swo",
+          "price": 45,
+          "pcPrice": 5254.54,
+          "edgePct": 99.1,
+          "rankScore": 34.7,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T15:30:22.720Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|137027026196|0",
+          "title": "Pokémon TCG Alakazam EX Promo PSA 8",
+          "price": 15,
+          "pcPrice": 374.85,
+          "edgePct": 96,
+          "rankScore": 33.6,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T15:30:22.720Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|117039102210|0",
+          "title": "2025 POKEMON MEP EN-ME BLACK STAR PROMO #009 ALAKA",
+          "price": 35,
+          "pcPrice": 374.85,
+          "edgePct": 90.7,
+          "rankScore": 31.73,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T15:30:22.720Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|137024312269|0",
+          "title": "Pokémon Alakazam TCG Base Set 2 Holo Rare Card 1/1",
+          "price": 42,
+          "pcPrice": 374.85,
+          "edgePct": 88.8,
+          "rankScore": 31.08,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T15:30:22.720Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|306732868450|0",
+          "title": "Pokemon Alakazam Base Set Unlimited Holo Rare 001/",
+          "price": 42,
+          "pcPrice": 374.85,
+          "edgePct": 88.8,
+          "rankScore": 31.08,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T15:30:22.720Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|227203780514|0",
+          "title": "Pokemon Alakazam 1/102 Base Set Holo Vintage PSA 6",
+          "price": 44.99,
+          "pcPrice": 374.85,
+          "edgePct": 88,
+          "rankScore": 30.8,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T15:30:22.720Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|188062573118|0",
+          "title": "PSA 2 Alakazam Holo 1999 Pokemon Base Set 1/102 Po",
+          "price": 49.99,
+          "pcPrice": 374.85,
+          "edgePct": 86.7,
+          "rankScore": 30.33,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T15:30:22.720Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|157136712923|0",
+          "title": "2011 Pokemon Call of Legends #58 Hitmonlee C BGS 9",
+          "price": 13.99,
+          "pcPrice": 42,
+          "edgePct": 66.7,
+          "rankScore": 23.34,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T15:30:22.720Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|298025198779|0",
+          "title": "2019 POKEMON SUN & MOON HIDDEN FATES #SV1 SCYTHER-",
+          "price": 19.99,
+          "pcPrice": 52,
+          "edgePct": 61.6,
+          "rankScore": 21.55,
+          "reason": "raw_vs_graded_uncertain",
+          "flags": [
+            "raw_vs_graded_uncertain",
+            "needs_graded_comp_lookup"
+          ],
+          "lastSeen": "2026-02-16T15:30:22.720Z",
+          "source": "relookup"
+        },
+        {
+          "itemId": "v1|287124134914|0",
+          "title": "LUGIA V #138 PSA 9 FULL ART SILVER TEMPEST 2022 PO",
+          "price": 29.99,
+          "pcPrice": 22.13,
+          "edgePct": -35.5,
+          "rankScore": -35.5,
+          "reason": "variant_memory_resolved",
+          "flags": [],
+          "lastSeen": "2026-02-16T10:52:48.099Z",
+          "source": "human_memory"
+        },
+        {
+          "itemId": "v1|376937078433|0",
+          "title": "2021 POKEMON CELEBRATIONS #022 LUGIA PSA 9 Mint",
+          "price": 19.99,
+          "pcPrice": 13.5,
+          "edgePct": -48.1,
+          "rankScore": -48.1,
+          "reason": "graded_relookup_success",
+          "flags": [],
+          "lastSeen": "2026-02-16T10:52:48.099Z",
+          "source": "relookup"
+        }
+      ],
+      "review": [],
+      "overpriced": [],
+      "hold": []
+    }
+  },
+  "summary": {
+    "totalItemsTracked": 14,
+    "readyCount": 14,
+    "reviewCount": 0,
+    "badLines": 0
   }
 }
