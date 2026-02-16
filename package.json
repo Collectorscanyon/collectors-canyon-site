@@ -1,0 +1,15 @@
+{
+  "name": "collectors-canyon",
+  "version": "1.0.0",
+  "description": "Collector's Canyon public website",
+  "type": "module",
+  "scripts": {
+    "build:snapshot": "node scripts/build-public-snapshot.cjs",
+    "dev": "npx serve public -l 3000",
+    "build": "npm run build:snapshot",
+    "preview": "npx serve public"
+  },
+  "dependencies": {
+    "astro": "^4.0.0"
+  }
+}

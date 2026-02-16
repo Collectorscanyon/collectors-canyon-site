@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collector's Canyon | Pokemon Card Deals & Grading</title>
+  <meta name="description" content="Collector's Canyon - Your source for Pokemon card deals, PSA grading, and collector insights.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Collector's Canyon">
+  <meta property="og:description" content="Your source for Pokemon card deals & grading">
+  <meta property="og:type" content="website">
+  
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg: #0f1419;
+      --bg-secondary: #16181c;
+      --bg-tertiary: #1c1f23;
+      --text: #e7e9ea;
+      --text-muted: #71767b;
+      --accent: #1d9bf0;
+      --accent-hover: #1a8cd8;
+      --success: #00ba7c;
+      --warning: #ffd400;
+      --danger: #f4212e;
+      --border: #2f3336;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    header {
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text);
+      text-decoration: none;
+    }
+    
+    .logo span { color: var(--accent); }
+    
+    nav {
+      display: flex;
+      gap: 24px;
+    }
+    
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    
+    nav a:hover { color: var(--text); }
+    
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg) 100%);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    
+    .hero h1 span { color: var(--accent); }
+    
+    .hero p {
+      font-size: 20px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 32px;
+    }
+    
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+    
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    
+    .btn-primary:hover { background: var(--accent-hover); }
+    
+    .btn-secondary {
+      background: var(--bg-tertiary);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    
+    .btn-secondary:hover { background: var(--border); }
+    
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 48px 24px;
+    }
+    
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    
+    .stat-card {
+      background: var(--bg-secondary);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+    
+    .stat-card .value {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    
+    .stat-card .label {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+    
+    /* Watchlist */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+    }
+    
+    .watchlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .card-item {
+      background: var(--bg-secondary);
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid var(--border);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    
+    .card-item:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent);
+    }
+    
+    .card-item .pokemon {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    
+    .card-item .set {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    
+    .card-item .prices {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 16px 0;
+    }
+    
+    .card-item .price {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    
+    .card-item .pc-price {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    
+    .card-item .edge {
+      font-size: 14px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+    
+    .edge.ready { background: rgba(0, 187, 124, 0.2); color: var(--success); }
+    .edge.review { background: rgba(255, 212, 0, 0.2); color: var(--warning); }
+    
+    .card-item .grade {
+      display: inline-block;
+      background: var(--bg-tertiary);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+    }
+    
+    .card-item .meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    
+    .feature-card {
+      background: var(--bg-secondary);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    
+    .feature-card .icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+    
+    .feature-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    
+    .feature-card p {
+      color: var(--text-muted);
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 48px 24px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    /* Loading */
+    .loading {
+      text-align: center;
+      padding: 48px;
+      color: var(--text-muted);
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      nav { display: none; }
+      .header-content { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <a href="/" class="logo">Collector's <span>Canyon</span></a>
+      <nav>
+        <a href="#watchlist">Watchlist</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+  
+  <section class="hero">
+    <h1>Your Gateway to <span>Pokemon</span> Treasures</h1>
+    <p>We source, grade, and curate the best Pokemon cards for collectors. From vintage hits to modern chase cards.</p>
+    <div class="cta-buttons">
+      <a href="#watchlist" class="btn btn-primary">View Watchlist</a>
+      <a href="#services" class="btn btn-secondary">Our Services</a>
+    </div>
+  </section>
+  
+  <div class="container">
+    <!-- Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="value" id="stat-watched">-</div>
+        <div class="label">Cards Watched</div>
+      </div>
+      <div class="stat-card">
+        <div class="value" id="stat-ready">-</div>
+        <div class="label">Ready to Buy</div>
+      </div>
+      <div class="stat-card">
+        <div class="value" id="stat-review">-</div>
+        <div class="label">Under Review</div>
+      </div>
+      <div class="stat-card">
+        <div class="value">PSA</div>
+        <div class="label">Grading Partner</div>
+      </div>
+    </div>
+    
+    <!-- Watchlist -->
+    <div class="section-header">
+      <h2 class="section-title">🔥 Live Watchlist</h2>
+      <span id="last-updated" style="color: var(--text-muted); font-size: 14px;"></span>
+    </div>
+    
+    <div class="watchlist-grid" id="watchlist">
+      <div class="loading">Loading watchlist...</div>
+    </div>
+  </div>
+  
+  <!-- Services -->
+  <div class="container" id="services">
+    <h2 class="section-title" style="margin-bottom: 32px;">What We Do</h2>
+    <div class="features">
+      <div class="feature-card">
+        <div class="icon">🔍</div>
+        <h3>Deal Hunting</h3>
+        <p>We scan thousands of listings daily to find undervalued Pokemon cards with real profit potential.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📋</div>
+        <h3>PSA Grading</h3>
+        <p>Select cards submitted for PSA grading. We handle the entire process from submission to return.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">💎</div>
+        <h3>Collection Curation</h3>
+        <p>We help build and manage valuable collections. From investment pieces to PC gems.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- About -->
+  <div class="container" id="about">
+    <h2 class="section-title" style="margin-bottom: 32px;">About Collector's Canyon</h2>
+    <p style="color: var(--text-muted); max-width: 700px;">
+      Collector's Canyon is your trusted partner in the Pokemon collecting world. 
+      We combine data-driven deal hunting with expert grading knowledge to help collectors 
+      build amazing collections at fair prices.
+    </p>
+  </div>
+  
+  <!-- Contact -->
+  <div class="container" id="contact">
+    <h2 class="section-title" style="margin-bottom: 24px;">Get In Touch</h2>
+    <p style="color: var(--text-muted);">
+      Interested in our services or have questions? We'd love to hear from you.
+    </p>
+    <a href="mailto:hello@collectorscanyon.cards" class="btn btn-primary" style="margin-top: 16px;">
+      Contact Us
+    </a>
+  </div>
+  
+  <footer>
+    <p>&copy; 2026 Collector's Canyon. All rights reserved.</p>
+    <p style="margin-top: 8px;">
+      Pokemon is a trademark of Nintendo/Creatures Inc./GAME FREAK inc.
+    </p>
+  </footer>
+
+  <script>
+    // API endpoint - set via env var or default to localhost for dev
+    const API_BASE = window.PUBLIC_API_BASE || 'http://localhost:3847';
+    
+    // Load watchlist data
+    async function loadWatchlist() {
+      try {
+        let data = null;
+        
+        // Try to fetch from ops API first
+        try {
+          const res = await fetch(`${API_BASE}/api/public/watchlist`);
+          if (res.ok) {
+            data = await res.json();
+          }
+        } catch {}
+        
+        // Fallback: try local static file
+        if (!data) {
+          try {
+            const res = await fetch('/api/public.json');
+            if (res.ok) data = await res.json();
+          } catch {}
+        }
+        
+        if (!data || !data.watchlist) {
+          document.getElementById('watchlist').innerHTML = '<div class="loading">No items currently on watchlist</div>';
+          return;
+        }
+        
+        // Update stats
+        document.getElementById('stat-watched').textContent = data.stats?.totalWatched || 0;
+        document.getElementById('stat-ready').textContent = data.stats?.ready || 0;
+        document.getElementById('stat-review').textContent = data.stats?.review || 0;
+        
+        // Update timestamp
+        if (data.updated) {
+          const date = new Date(data.updated);
+          document.getElementById('last-updated').textContent = 'Updated ' + date.toLocaleString();
+        }
+        
+        // Render watchlist
+        const container = document.getElementById('watchlist');
+        
+        if (data.watchlist.length === 0) {
+          container.innerHTML = '<div class="loading">No items currently on watchlist</div>';
+          return;
+        }
+        
+        container.innerHTML = data.watchlist.map(card => {
+          const edge = parseFloat(card.edgePct) || 0;
+          const edgePrefix = edge >= 0 ? '+' : '';
+          const bucketClass = card.bucket === 'READY' ? 'ready' : 'review';
+          
+          return `
+            <div class="card-item">
+              <div class="pokemon">${card.pokemon || 'Pokemon'}</div>
+              <div class="set">${card.set || 'Unknown Set'} #${card.cardNumber || '??'}</div>
+              ${card.grade ? `<span class="grade">${card.grade}</span>` : ''}
+              <div class="prices">
+                <div>
+                  <div class="price">$${card.price}</div>
+                  <div class="pc-price">PC: $${card.pcPrice || 'N/A'}</div>
+                </div>
+                <span class="edge ${bucketClass}">${edgePrefix}${edge}%</span>
+              </div>
+              <div class="meta">
+                <span>${card.source || 'eBay'}</span>
+                <span>${card.bucket || 'REVIEW'}</span>
+              </div>
+            </div>
+          `;
+        }).join('');
+        
+      } catch (e) {
+        console.error('Failed to load watchlist:', e);
+        document.getElementById('watchlist').innerHTML = '<div class="loading">Failed to load watchlist</div>';
+      }
+    }
+    
+    loadWatchlist();
+  </script>
+</body>
+</html>
