@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: collectors-canyon-ops
+    env: node
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: WORKSPACE
+        value: /home/perry/clawd/CARDSHARK_EMPIRE
+      - key: OPS_DATA_DIR
+        value: /home/perry/clawd/CARDSHARK_EMPIRE
+      - key: OPS_READ_ONLY
+        value: "true"
+      - key: CORS_ORIGIN
+        value: "*"
