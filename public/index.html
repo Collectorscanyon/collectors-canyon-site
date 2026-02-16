@@ -12,13 +12,13 @@
   <meta property="og:type" content="website">
   
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    
     :root {
-      --bg: #0f1419;
+      --minScale: .94;
+      --maxScale: 1.10;
+      --bg: #070A12;
       --bg-secondary: #16181c;
       --bg-tertiary: #1c1f23;
-      --text: #e7e9ea;
+      --text: #EAF0FF;
       --text-muted: #71767b;
       --accent: #1d9bf0;
       --accent-hover: #1a8cd8;
@@ -28,12 +28,67 @@
       --border: #2f3336;
     }
     
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
+    
+    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 80px; }
+    .grid { display: grid; gap: 14px; }
+    
+    .card {
+      display: grid;
+      grid-template-columns: 96px 1fr auto;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      transform: translateZ(0) scale(var(--minScale));
+      transition: box-shadow 180ms ease, filter 180ms ease, background 180ms ease;
+      will-change: transform;
+    }
+    
+    .card.is-focused {
+      background: rgba(255,255,255,.10);
+      border-color: rgba(120,160,255,.28);
+      box-shadow: 0 18px 60px rgba(40,80,255,.14), 0 16px 60px rgba(0,0,0,.45);
+    }
+    
+    .thumb {
+      width: 96px;
+      height: 96px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(255,255,255,.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    
+    .meta .title { font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+    .meta .sub { opacity: .85; font-size: 14px; }
+    
+    .pill {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(120,160,255,.14);
+      border: 1px solid rgba(120,160,255,.22);
+      white-space: nowrap;
+      height: fit-content;
+    }
+    
+    .price { text-align: right; font-variant-numeric: tabular-nums; }
+    .price .row { font-size: 13px; opacity: .9; }
+    .price .edge { margin-top: 6px; font-weight: 700; }
     
     /* Header */
     header {
@@ -45,35 +100,11 @@
       z-index: 100;
     }
     
-    .header-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    
-    .logo {
-      font-size: 24px;
-      font-weight: 800;
-      color: var(--text);
-      text-decoration: none;
-    }
-    
+    .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 24px; font-weight: 800; color: var(--text); text-decoration: none; }
     .logo span { color: var(--accent); }
-    
-    nav {
-      display: flex;
-      gap: 24px;
-    }
-    
-    nav a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s;
-    }
-    
+    nav { display: flex; gap: 24px; }
+    nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
     nav a:hover { color: var(--text); }
     
     /* Hero */
@@ -83,229 +114,55 @@
       text-align: center;
     }
     
-    .hero h1 {
-      font-size: 48px;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-    
+    .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 16px; }
     .hero h1 span { color: var(--accent); }
+    .hero p { font-size: 20px; color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; }
     
-    .hero p {
-      font-size: 20px;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 32px;
-    }
-    
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-    }
-    
-    .btn {
-      display: inline-block;
-      padding: 14px 28px;
-      border-radius: 30px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-    
-    .btn-primary {
-      background: var(--accent);
-      color: #fff;
-    }
-    
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; }
+    .btn { display: inline-block; padding: 14px 28px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: #fff; }
     .btn-primary:hover { background: var(--accent-hover); }
-    
-    .btn-secondary {
-      background: var(--bg-tertiary);
-      color: var(--text);
-      border: 1px solid var(--border);
-    }
-    
+    .btn-secondary { background: var(--bg-tertiary); color: var(--text); border: 1px solid var(--border); }
     .btn-secondary:hover { background: var(--border); }
     
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 48px 24px;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
     
     /* Stats */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      margin-bottom: 48px;
-    }
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .stat-card { background: var(--bg-secondary); border-radius: 12px; padding: 20px; text-align: center; }
+    .stat-card .value { font-size: 32px; font-weight: 700; color: var(--accent); }
+    .stat-card .label { color: var(--text-muted); font-size: 12px; margin-top: 4px; text-transform: uppercase; }
     
-    .stat-card {
-      background: var(--bg-secondary);
-      border-radius: 16px;
-      padding: 24px;
-      text-align: center;
-    }
+    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+    .section-title { font-size: 28px; font-weight: 700; }
     
-    .stat-card .value {
-      font-size: 36px;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    
-    .stat-card .label {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin-top: 4px;
-    }
-    
-    /* Watchlist */
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
-    
-    .section-title {
-      font-size: 28px;
-      font-weight: 700;
-    }
-    
-    .watchlist-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    
-    .card-item {
-      background: var(--bg-secondary);
-      border-radius: 16px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    
-    .card-item:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-    }
-    
-    .card-item .pokemon {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    
-    .card-item .set {
-      color: var(--text-muted);
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
-    
-    .card-item .prices {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 16px 0;
-    }
-    
-    .card-item .price {
-      font-size: 24px;
-      font-weight: 700;
-    }
-    
-    .card-item .pc-price {
-      color: var(--text-muted);
-      font-size: 14px;
-    }
-    
-    .card-item .edge {
-      font-size: 14px;
-      font-weight: 600;
-      padding: 4px 12px;
-      border-radius: 20px;
-    }
-    
+    .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+    .card-item { background: var(--bg-secondary); border-radius: 16px; padding: 20px; border: 1px solid var(--border); transition: transform 0.2s, border-color 0.2s; }
+    .card-item:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .card-item .pokemon { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
+    .card-item .set { color: var(--text-muted); font-size: 14px; margin-bottom: 12px; }
+    .card-item .prices { display: flex; justify-content: space-between; align-items: center; margin: 16px 0; }
+    .card-item .price { font-size: 24px; font-weight: 700; }
+    .card-item .pc-price { color: var(--text-muted); font-size: 14px; }
+    .card-item .edge { font-size: 14px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
     .edge.ready { background: rgba(0, 187, 124, 0.2); color: var(--success); }
     .edge.review { background: rgba(255, 212, 0, 0.2); color: var(--warning); }
+    .card-item .grade { display: inline-block; background: var(--bg-tertiary); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--accent); }
+    .card-item .meta { display: flex; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
     
-    .card-item .grade {
-      display: inline-block;
-      background: var(--bg-tertiary);
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--accent);
-    }
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+    .feature-card { background: var(--bg-secondary); border-radius: 16px; padding: 32px; }
+    .feature-card .icon { font-size: 40px; margin-bottom: 16px; }
+    .feature-card h3 { font-size: 20px; margin-bottom: 12px; }
+    .feature-card p { color: var(--text-muted); }
     
-    .card-item .meta {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--text-muted);
-    }
+    footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; color: var(--text-muted); }
+    footer a { color: var(--accent); text-decoration: none; }
+    .loading { text-align: center; padding: 60px; color: var(--text-muted); }
     
-    /* Features */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    
-    .feature-card {
-      background: var(--bg-secondary);
-      border-radius: 16px;
-      padding: 32px;
-    }
-    
-    .feature-card .icon {
-      font-size: 40px;
-      margin-bottom: 16px;
-    }
-    
-    .feature-card h3 {
-      font-size: 20px;
-      margin-bottom: 12px;
-    }
-    
-    .feature-card p {
-      color: var(--text-muted);
-    }
-    
-    /* Footer */
-    footer {
-      background: var(--bg-secondary);
-      border-top: 1px solid var(--border);
-      padding: 48px 24px;
-      text-align: center;
-      color: var(--text-muted);
-    }
-    
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    
-    /* Loading */
-    .loading {
-      text-align: center;
-      padding: 48px;
-      color: var(--text-muted);
-    }
-    
-    /* Responsive */
     @media (max-width: 768px) {
       .hero h1 { font-size: 32px; }
       nav { display: none; }
-      .header-content { justify-content: center; }
     }
   </style>
 </head>
@@ -352,14 +209,12 @@
       </div>
     </div>
     
-    <!-- Watchlist -->
-    <div class="section-header">
-      <h2 class="section-title">🔥 Live Watchlist</h2>
-      <span id="last-updated" style="color: var(--text-muted); font-size: 14px;"></span>
-    </div>
-    
-    <div class="watchlist-grid" id="watchlist">
-      <div class="loading">Loading watchlist...</div>
+    <div class="wrap">
+      <h1 style="margin: 10px 0 6px;">Collector's Canyon Watchlist</h1>
+      <div style="opacity:.8; margin-bottom: 18px;">Scroll — tiles grow when they hit center.</div>
+      <div id="list" class="grid">
+        <div class="loading">Loading watchlist...</div>
+      </div>
     </div>
   </div>
   
@@ -414,86 +269,96 @@
   </footer>
 
   <script>
-    // API endpoint - set via env var or default to localhost for dev
-    const API_BASE = window.PUBLIC_API_BASE || 'http://localhost:3847';
+    const API_BASE = window.PUBLIC_API_BASE || '';
+    const endpoint = `${API_BASE}/api/public/watchlist`;
     
-    // Load watchlist data
+    function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
+    
     async function loadWatchlist() {
-      try {
-        let data = null;
-        
-        // Try to fetch from ops API first
-        try {
-          const res = await fetch(`${API_BASE}/api/public/watchlist`);
-          if (res.ok) {
-            data = await res.json();
-          }
-        } catch {}
-        
-        // Fallback: try local static file
-        if (!data) {
-          try {
-            const res = await fetch('/api/public.json');
-            if (res.ok) data = await res.json();
-          } catch {}
-        }
-        
-        if (!data || !data.watchlist) {
-          document.getElementById('watchlist').innerHTML = '<div class="loading">No items currently on watchlist</div>';
-          return;
-        }
-        
-        // Update stats
-        document.getElementById('stat-watched').textContent = data.stats?.totalWatched || 0;
-        document.getElementById('stat-ready').textContent = data.stats?.ready || 0;
-        document.getElementById('stat-review').textContent = data.stats?.review || 0;
-        
-        // Update timestamp
-        if (data.updated) {
-          const date = new Date(data.updated);
-          document.getElementById('last-updated').textContent = 'Updated ' + date.toLocaleString();
-        }
-        
-        // Render watchlist
-        const container = document.getElementById('watchlist');
-        
-        if (data.watchlist.length === 0) {
-          container.innerHTML = '<div class="loading">No items currently on watchlist</div>';
-          return;
-        }
-        
-        container.innerHTML = data.watchlist.map(card => {
-          const edge = parseFloat(card.edgePct) || 0;
-          const edgePrefix = edge >= 0 ? '+' : '';
-          const bucketClass = card.bucket === 'READY' ? 'ready' : 'review';
-          
-          return `
-            <div class="card-item">
-              <div class="pokemon">${card.pokemon || 'Pokemon'}</div>
-              <div class="set">${card.set || 'Unknown Set'} #${card.cardNumber || '??'}</div>
-              ${card.grade ? `<span class="grade">${card.grade}</span>` : ''}
-              <div class="prices">
-                <div>
-                  <div class="price">$${card.price}</div>
-                  <div class="pc-price">PC: $${card.pcPrice || 'N/A'}</div>
-                </div>
-                <span class="edge ${bucketClass}">${edgePrefix}${edge}%</span>
-              </div>
-              <div class="meta">
-                <span>${card.source || 'eBay'}</span>
-                <span>${card.bucket || 'REVIEW'}</span>
-              </div>
-            </div>
-          `;
-        }).join('');
-        
-      } catch (e) {
-        console.error('Failed to load watchlist:', e);
-        document.getElementById('watchlist').innerHTML = '<div class="loading">Failed to load watchlist</div>';
-      }
+      const res = await fetch(endpoint, { cache: "no-store" });
+      const data = await res.json();
+      return data.watchlist || [];
     }
     
-    loadWatchlist();
+    function formatPct(n) {
+      if (n === null || n === undefined || Number.isNaN(Number(n))) return "—";
+      const v = Number(n);
+      return `${v >= 0 ? "+" : ""}${v.toFixed(1)}%`;
+    }
+    
+    function render(items) {
+      const list = document.getElementById("list");
+      list.innerHTML = items.map((it, idx) => `
+        <div class="card" data-idx="${idx}">
+          <div class="thumb">
+            ${it.imageUrl ? `<img loading="lazy" src="${it.imageUrl}" alt="">` : `<div style="opacity:.6;font-size:12px;">no image</div>`}
+          </div>
+          <div class="meta">
+            <div class="title">${it.title || "Untitled"}</div>
+            <div class="sub">${[it.set, it.grade].filter(Boolean).join(" • ")}</div>
+            <div class="sub" style="margin-top:6px; opacity:.75;">Bucket: ${it.bucket || "—"}</div>
+          </div>
+          <div class="price">
+            <div class="row">List: $${Number(it.price||0).toFixed(2)}</div>
+            <div class="row">PC: $${Number(it.pcPrice||0).toFixed(2)}</div>
+            <div class="edge">${formatPct(it.edgePct)}</div>
+          </div>
+        </div>
+      `).join("");
+      attachCenterScale();
+    }
+    
+    function attachCenterScale() {
+      const cards = Array.from(document.querySelectorAll(".card"));
+      if (!cards.length) return;
+      
+      let ticking = false;
+      const inView = new Set();
+      
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) inView.add(e.target);
+          else inView.delete(e.target);
+        }
+        requestTick();
+      }, { root: null, threshold: 0, rootMargin: "200px 0px 200px 0px" });
+      
+      cards.forEach(c => io.observe(c));
+      
+      function requestTick() {
+        if (!ticking) { ticking = true; requestAnimationFrame(update); }
+      }
+      
+      function update() {
+        ticking = false;
+        const vh = window.innerHeight;
+        const centerY = vh / 2;
+        let best = null;
+        let bestDist = Infinity;
+        
+        for (const el of inView) {
+          const r = el.getBoundingClientRect();
+          const elCenter = r.top + r.height / 2;
+          const dist = Math.abs(elCenter - centerY);
+          if (dist < bestDist) { bestDist = dist; best = el; }
+          
+          const norm = clamp(dist / (vh * 0.55), 0, 1);
+          const scale = (1 - norm) * 1.10 + norm * 0.94;
+          el.style.transform = `translateZ(0) scale(${scale.toFixed(3)})`;
+        }
+        
+        cards.forEach(c => c.classList.toggle("is-focused", c === best));
+      }
+      
+      window.addEventListener("scroll", requestTick, { passive: true });
+      window.addEventListener("resize", requestTick);
+      requestTick();
+    }
+    
+    (async function init() {
+      const items = await loadWatchlist();
+      render(items);
+    })();
   </script>
 </body>
 </html>
