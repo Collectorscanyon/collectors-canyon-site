@@ -3,269 +3,331 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Collector's Canyon | Pokemon Card Deals & Grading</title>
-  <meta name="description" content="Collector's Canyon - Your source for Pokemon card deals, PSA grading, and collector insights.">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Collector's Canyon">
-  <meta property="og:description" content="Your source for Pokemon card deals & grading">
-  <meta property="og:type" content="website">
+  <title>Collector's Canyon | Pokemon Card Deals</title>
+  <meta name="description" content="Discover rare Pokemon card deals. Expert grading, curated collections.">
   
   <style>
     :root {
       --minScale: .94;
       --maxScale: 1.10;
-      --bg: #070A12;
-      --bg-secondary: #16181c;
-      --bg-tertiary: #1c1f23;
-      --text: #EAF0FF;
-      --text-muted: #71767b;
-      --accent: #1d9bf0;
-      --accent-hover: #1a8cd8;
-      --success: #00ba7c;
-      --warning: #ffd400;
-      --danger: #f4212e;
-      --border: #2f3336;
+      /* Canyon Desert Theme */
+      --bg: #1a1410;
+      --bg-warm: #2d1f14;
+      --bg-card: #3a2819;
+      --text: #f5e6d3;
+      --text-muted: #a89080;
+      --accent: #e07b39;
+      --accent-glow: #ff9f43;
+      --accent-dark: #c45c1a;
+      --success: #52c41a;
+      --warning: #faad14;
+      --danger: #ff4d4f;
+      --border: #5a4030;
+      --sand: #d4a574;
     }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
     body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-      background: var(--bg);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, #0f0a08 100%);
       color: var(--text);
-      line-height: 1.6;
+      min-height: 100vh;
     }
     
-    .wrap { max-width: 980px; margin: 0 auto; padding: 24px 16px 80px; }
-    .grid { display: grid; gap: 14px; }
-    
-    .card {
-      display: grid;
-      grid-template-columns: 96px 1fr auto;
-      gap: 14px;
-      padding: 14px;
-      border-radius: 16px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-      transform: translateZ(0) scale(var(--minScale));
-      transition: box-shadow 180ms ease, filter 180ms ease, background 180ms ease;
-      will-change: transform;
-    }
-    
-    .card.is-focused {
-      background: rgba(255,255,255,.10);
-      border-color: rgba(120,160,255,.28);
-      box-shadow: 0 18px 60px rgba(40,80,255,.14), 0 16px 60px rgba(0,0,0,.45);
-    }
-    
-    .thumb {
-      width: 96px;
-      height: 96px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(255,255,255,.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    
-    .meta .title { font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
-    .meta .sub { opacity: .85; font-size: 14px; }
-    
-    .pill {
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(120,160,255,.14);
-      border: 1px solid rgba(120,160,255,.22);
-      white-space: nowrap;
-      height: fit-content;
-    }
-    
-    .price { text-align: right; font-variant-numeric: tabular-nums; }
-    .price .row { font-size: 13px; opacity: .9; }
-    .price .edge { margin-top: 6px; font-weight: 700; }
-    
-    /* Header */
-    header {
-      background: var(--bg-secondary);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 24px;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    
-    .header-content { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 24px; font-weight: 800; color: var(--text); text-decoration: none; }
-    .logo span { color: var(--accent); }
-    nav { display: flex; gap: 24px; }
-    nav a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-    nav a:hover { color: var(--text); }
-    
-    /* Hero */
+    /* Hero Section */
     .hero {
-      background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg) 100%);
-      padding: 80px 24px;
+      background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg) 100%);
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(224,123,57,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 800;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--text) 0%, var(--sand) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .hero .tagline {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    /* Stats Bar */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 24px 20px;
+      background: var(--bg-warm);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .stat {
       text-align: center;
     }
     
-    .hero h1 { font-size: 48px; font-weight: 800; margin-bottom: 16px; }
-    .hero h1 span { color: var(--accent); }
-    .hero p { font-size: 20px; color: var(--text-muted); max-width: 600px; margin: 0 auto 32px; }
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+    }
     
-    .cta-buttons { display: flex; gap: 16px; justify-content: center; }
-    .btn { display: inline-block; padding: 14px 28px; border-radius: 30px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-primary:hover { background: var(--accent-hover); }
-    .btn-secondary { background: var(--bg-tertiary); color: var(--text); border: 1px solid var(--border); }
-    .btn-secondary:hover { background: var(--border); }
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
     
-    .container { max-width: 1200px; margin: 0 auto; padding: 48px 24px; }
+    /* Watchlist Section */
+    .watchlist-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 16px 80px;
+    }
     
-    /* Stats */
-    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 32px; }
-    .stat-card { background: var(--bg-secondary); border-radius: 12px; padding: 20px; text-align: center; }
-    .stat-card .value { font-size: 32px; font-weight: 700; color: var(--accent); }
-    .stat-card .label { color: var(--text-muted); font-size: 12px; margin-top: 4px; text-transform: uppercase; }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
     
-    .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
-    .section-title { font-size: 28px; font-weight: 700; }
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--sand);
+    }
     
-    .watchlist-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-    .card-item { background: var(--bg-secondary); border-radius: 16px; padding: 20px; border: 1px solid var(--border); transition: transform 0.2s, border-color 0.2s; }
-    .card-item:hover { transform: translateY(-4px); border-color: var(--accent); }
-    .card-item .pokemon { font-size: 18px; font-weight: 700; margin-bottom: 4px; }
-    .card-item .set { color: var(--text-muted); font-size: 14px; margin-bottom: 12px; }
-    .card-item .prices { display: flex; justify-content: space-between; align-items: center; margin: 16px 0; }
-    .card-item .price { font-size: 24px; font-weight: 700; }
-    .card-item .pc-price { color: var(--text-muted); font-size: 14px; }
-    .card-item .edge { font-size: 14px; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
-    .edge.ready { background: rgba(0, 187, 124, 0.2); color: var(--success); }
-    .edge.review { background: rgba(255, 212, 0, 0.2); color: var(--warning); }
-    .card-item .grade { display: inline-block; background: var(--bg-tertiary); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 600; color: var(--accent); }
-    .card-item .meta { display: flex; justify-content: space-between; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+    /* Card Grid */
+    .grid { display: grid; gap: 16px; }
     
-    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-    .feature-card { background: var(--bg-secondary); border-radius: 16px; padding: 32px; }
-    .feature-card .icon { font-size: 40px; margin-bottom: 16px; }
-    .feature-card h3 { font-size: 20px; margin-bottom: 12px; }
-    .feature-card p { color: var(--text-muted); }
+    .card {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 16px;
+      padding: 16px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      transform: translateZ(0) scale(var(--minScale));
+      transition: all 220ms ease;
+      will-change: transform;
+    }
     
-    footer { background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; color: var(--text-muted); }
-    footer a { color: var(--accent); text-decoration: none; }
-    .loading { text-align: center; padding: 60px; color: var(--text-muted); }
+    .card:hover {
+      border-color: var(--accent);
+    }
     
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      nav { display: none; }
+    .card.is-focused {
+      background: linear-gradient(135deg, var(--bg-card) 0%, #4a3020 100%);
+      border-color: var(--accent);
+      box-shadow: 0 12px 40px rgba(224,123,57,0.2), 0 8px 24px rgba(0,0,0,0.4);
+    }
+    
+    .thumb {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .thumb-placeholder {
+      font-size: 32px;
+      opacity: 0.3;
+    }
+    
+    .meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    
+    .meta .title {
+      font-size: 15px;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    
+    .meta .details {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    
+    .meta .badge {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--sand);
+      margin-top: 8px;
+      width: fit-content;
+    }
+    
+    .price-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      text-align: right;
+      min-width: 90px;
+    }
+    
+    .price-col .list-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    
+    .price-col .pc-price {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    
+    .price-col .edge {
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 8px;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    
+    .edge.ready {
+      background: rgba(82,196,26,0.2);
+      color: var(--success);
+    }
+    
+    .edge.review {
+      background: rgba(250,173,20,0.2);
+      color: var(--warning);
+    }
+    
+    /* Loading */
+    .loading {
+      text-align: center;
+      padding: 60px;
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+    
+    /* Empty State */
+    .empty {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--text-muted);
+    }
+    
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 14px;
+      border-top: 1px solid var(--border);
+    }
+    
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    
+    @media (max-width: 600px) {
+      .card {
+        grid-template-columns: 80px 1fr;
+        grid-template-rows: auto auto;
+      }
+      .thumb { width: 80px; height: 80px; }
+      .price-col {
+        grid-column: 2;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 12px;
+        align-items: center;
+        margin-top: 8px;
+      }
+      .stats-bar { gap: 20px; }
+      .stat-value { font-size: 22px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-content">
-      <a href="/" class="logo">Collector's <span>Canyon</span></a>
-      <nav>
-        <a href="#watchlist">Watchlist</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
+  
+  <header class="hero">
+    <h1>Collector's Canyon</h1>
+    <p class="tagline">Rare Pokemon cards. Expert grading. Curated for collectors.</p>
   </header>
   
-  <section class="hero">
-    <h1>Your Gateway to <span>Pokemon</span> Treasures</h1>
-    <p>We source, grade, and curate the best Pokemon cards for collectors. From vintage hits to modern chase cards.</p>
-    <div class="cta-buttons">
-      <a href="#watchlist" class="btn btn-primary">View Watchlist</a>
-      <a href="#services" class="btn btn-secondary">Our Services</a>
+  <div class="stats-bar">
+    <div class="stat">
+      <div class="stat-value" id="stat-watched">-</div>
+      <div class="stat-label">Cards Watched</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="stat-ready">-</div>
+      <div class="stat-label">Ready to Buy</div>
+    </div>
+    <div class="stat">
+      <div class="stat-value" id="stat-review">-</div>
+      <div class="stat-label">Under Review</div>
+    </div>
+  </div>
+  
+  <section class="watchlist-section">
+    <div class="section-header">
+      <h2 class="section-title">🔥 Live Watchlist</h2>
+    </div>
+    <div id="list" class="grid">
+      <div class="loading">Loading cards...</div>
     </div>
   </section>
   
-  <div class="container">
-    <!-- Stats -->
-    <div class="stats-grid">
-      <div class="stat-card">
-        <div class="value" id="stat-watched">-</div>
-        <div class="label">Cards Watched</div>
-      </div>
-      <div class="stat-card">
-        <div class="value" id="stat-ready">-</div>
-        <div class="label">Ready to Buy</div>
-      </div>
-      <div class="stat-card">
-        <div class="value" id="stat-review">-</div>
-        <div class="label">Under Review</div>
-      </div>
-      <div class="stat-card">
-        <div class="value">PSA</div>
-        <div class="label">Grading Partner</div>
-      </div>
-    </div>
-    
-    <div class="wrap">
-      <h1 style="margin: 10px 0 6px;">Collector's Canyon Watchlist</h1>
-      <div style="opacity:.8; margin-bottom: 18px;">Scroll — tiles grow when they hit center.</div>
-      <div id="list" class="grid">
-        <div class="loading">Loading watchlist...</div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Services -->
-  <div class="container" id="services">
-    <h2 class="section-title" style="margin-bottom: 32px;">What We Do</h2>
-    <div class="features">
-      <div class="feature-card">
-        <div class="icon">🔍</div>
-        <h3>Deal Hunting</h3>
-        <p>We scan thousands of listings daily to find undervalued Pokemon cards with real profit potential.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">📋</div>
-        <h3>PSA Grading</h3>
-        <p>Select cards submitted for PSA grading. We handle the entire process from submission to return.</p>
-      </div>
-      <div class="feature-card">
-        <div class="icon">💎</div>
-        <h3>Collection Curation</h3>
-        <p>We help build and manage valuable collections. From investment pieces to PC gems.</p>
-      </div>
-    </div>
-  </div>
-  
-  <!-- About -->
-  <div class="container" id="about">
-    <h2 class="section-title" style="margin-bottom: 32px;">About Collector's Canyon</h2>
-    <p style="color: var(--text-muted); max-width: 700px;">
-      Collector's Canyon is your trusted partner in the Pokemon collecting world. 
-      We combine data-driven deal hunting with expert grading knowledge to help collectors 
-      build amazing collections at fair prices.
-    </p>
-  </div>
-  
-  <!-- Contact -->
-  <div class="container" id="contact">
-    <h2 class="section-title" style="margin-bottom: 24px;">Get In Touch</h2>
-    <p style="color: var(--text-muted);">
-      Interested in our services or have questions? We'd love to hear from you.
-    </p>
-    <a href="mailto:hello@collectorscanyon.cards" class="btn btn-primary" style="margin-top: 16px;">
-      Contact Us
-    </a>
-  </div>
-  
   <footer>
-    <p>&copy; 2026 Collector's Canyon. All rights reserved.</p>
-    <p style="margin-top: 8px;">
-      Pokemon is a trademark of Nintendo/Creatures Inc./GAME FREAK inc.
-    </p>
+    <p>© 2026 Collector's Canyon</p>
   </footer>
 
   <script>
@@ -288,24 +350,53 @@
     
     function render(items) {
       const list = document.getElementById("list");
-      list.innerHTML = items.map((it, idx) => `
-        <div class="card" data-idx="${idx}">
-          <div class="thumb">
-            ${it.imageUrl ? `<img loading="lazy" src="${it.imageUrl}" alt="">` : `<div style="opacity:.6;font-size:12px;">no image</div>`}
+      
+      if (!items || items.length === 0) {
+        list.innerHTML = `
+          <div class="empty">
+            <div class="empty-icon">🏜️</div>
+            <p>No cards in the canyon right now.<br>Check back soon!</p>
           </div>
-          <div class="meta">
-            <div class="title">${it.title || "Untitled"}</div>
-            <div class="sub">${[it.set, it.grade].filter(Boolean).join(" • ")}</div>
-            <div class="sub" style="margin-top:6px; opacity:.75;">Bucket: ${it.bucket || "—"}</div>
+        `;
+        return;
+      }
+      
+      list.innerHTML = items.map((it, idx) => {
+        const bucketClass = it.bucket === 'READY' ? 'ready' : 'review';
+        const hasImage = it.imageUrl;
+        
+        return `
+          <div class="card" data-idx="${idx}">
+            <div class="thumb">
+              ${hasImage 
+                ? `<img loading="lazy" src="${it.imageUrl}" alt="" referrerpolicy="no-referrer" onerror="this.parentElement.innerHTML='<span class=\\'thumb-placeholder\\'>🎴</span>'">`
+                : `<span class="thumb-placeholder">🎴</span>`
+              }
+            </div>
+            <div class="meta">
+              <div class="title">${it.title || "Unknown Card"}</div>
+              <div class="details">${[it.set, it.grade].filter(Boolean).join(" • ")}</div>
+              ${it.bucket ? `<span class="badge">${it.bucket}</span>` : ''}
+            </div>
+            <div class="price-col">
+              <div class="list-price">$${Number(it.price||0).toFixed(2)}</div>
+              <div class="pc-price">PC: $${Number(it.pcPrice||0).toFixed(2)}</div>
+              <div class="edge ${bucketClass}">${formatPct(it.edgePct)}</div>
+            </div>
           </div>
-          <div class="price">
-            <div class="row">List: $${Number(it.price||0).toFixed(2)}</div>
-            <div class="row">PC: $${Number(it.pcPrice||0).toFixed(2)}</div>
-            <div class="edge">${formatPct(it.edgePct)}</div>
-          </div>
-        </div>
-      `).join("");
+        `;
+      }).join("");
+      
       attachCenterScale();
+      updateStats(items);
+    }
+    
+    function updateStats(items) {
+      const ready = items.filter(i => i.bucket === 'READY').length;
+      const review = items.filter(i => i.bucket === 'REVIEW').length;
+      document.getElementById('stat-watched').textContent = items.length;
+      document.getElementById('stat-ready').textContent = ready;
+      document.getElementById('stat-review').textContent = review;
     }
     
     function attachCenterScale() {
@@ -333,18 +424,25 @@
         ticking = false;
         const vh = window.innerHeight;
         const centerY = vh / 2;
-        let best = null;
-        let bestDist = Infinity;
         
         for (const el of inView) {
           const r = el.getBoundingClientRect();
           const elCenter = r.top + r.height / 2;
           const dist = Math.abs(elCenter - centerY);
-          if (dist < bestDist) { bestDist = dist; best = el; }
           
           const norm = clamp(dist / (vh * 0.55), 0, 1);
           const scale = (1 - norm) * 1.10 + norm * 0.94;
           el.style.transform = `translateZ(0) scale(${scale.toFixed(3)})`;
+        }
+        
+        // Find best (closest to center)
+        let best = null;
+        let bestDist = Infinity;
+        for (const el of inView) {
+          const r = el.getBoundingClientRect();
+          const elCenter = r.top + r.height / 2;
+          const dist = Math.abs(elCenter - centerY);
+          if (dist < bestDist) { bestDist = dist; best = el; }
         }
         
         cards.forEach(c => c.classList.toggle("is-focused", c === best));
@@ -356,8 +454,17 @@
     }
     
     (async function init() {
-      const items = await loadWatchlist();
-      render(items);
+      try {
+        const items = await loadWatchlist();
+        render(items);
+      } catch (e) {
+        document.getElementById('list').innerHTML = `
+          <div class="empty">
+            <div class="empty-icon">🏜️</div>
+            <p>Unable to load watchlist.<br>Please try again later.</p>
+          </div>
+        `;
+      }
     })();
   </script>
 </body>
