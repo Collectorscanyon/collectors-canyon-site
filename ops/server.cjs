@@ -15,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3847;
-const WORKSPACE = process.env.WORKSPACE || (process.env.RENDER ? '/opt/render/project/src' : process.cwd());
+const WORKSPACE = process.env.WORKSPACE || '/home/perry/clawd/CARDSHARK_EMPIRE';
 const DATA_DIR = process.env.OPS_DATA_DIR || WORKSPACE;
 const AUTH_TOKEN = process.env.OPS_DASHBOARD_TOKEN || null;
 const READ_ONLY = process.env.OPS_READ_ONLY === 'true';
@@ -51,8 +51,7 @@ function verifyDataDir() {
     process.exit(1);
   }
   
-  console.log(`[OK] Data directory: ${DATA_DIR}`);
-  console.log(`[OK] Snapshot exists: ${fs.existsSync(path.join(DATA_DIR, 'state', 'dashboard', 'current.json'))}`);
+  console.log(`[OK] Data directory verified: ${DATA_DIR}`);
 }
 
 // Helper functions for public watchlist
@@ -504,14 +503,14 @@ const HTML = `<!DOCTYPE html>
       // Helper to generate PC URL from title
       const getPcUrl = (title) => {
         if (!title) return '#';
-        const slug = title.replace(/[^a-zA-Z0-9]/g, '+').replace(/++/g, '+');
+        const slug = encodeURIComponent(title.replace(/[^a-zA-Z0-9]/g, ' ').trim().replace(/  +/g, '+'));
         return 'https://www.pricecharting.com/search?q=' + slug.substring(0, 50);
       };
       
       // Helper to generate eBay search URL
       const getEbayUrl = (title) => {
         if (!title) return '#';
-        const slug = title.replace(/[^a-zA-Z0-9]/g, '+').replace(/++/g, '+');
+        const slug = encodeURIComponent(title.replace(/[^a-zA-Z0-9]/g, ' ').trim().replace(/  +/g, '+'));
         return 'https://www.ebay.com/sch/i.html?_nkw=' + slug.substring(0, 40);
       };
       
