@@ -51,7 +51,8 @@ function verifyDataDir() {
     process.exit(1);
   }
   
-  console.log(`[OK] Data directory verified: ${DATA_DIR}`);
+  console.log(`[OK] Data directory: ${DATA_DIR}`);
+  console.log(`[OK] Snapshot exists: ${fs.existsSync(path.join(DATA_DIR, 'state', 'dashboard', 'current.json'))}`);
 }
 
 // Helper functions for public watchlist
