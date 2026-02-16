@@ -15,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3847;
-const WORKSPACE = process.env.WORKSPACE || (process.env.RENDER ? '/opt/render/project/src' : process.cwd());
+const WORKSPACE = process.env.WORKSPACE || '/home/perry/clawd/CARDSHARK_EMPIRE';
 const DATA_DIR = process.env.OPS_DATA_DIR || WORKSPACE;
 const AUTH_TOKEN = process.env.OPS_DASHBOARD_TOKEN || null;
 const READ_ONLY = process.env.OPS_READ_ONLY === 'true';
@@ -51,10 +51,7 @@ function verifyDataDir() {
     process.exit(1);
   }
   
-  console.log(`[OK] Data directory: ${DATA_DIR}`);
-  const snapPath = path.join(DATA_DIR, 'state', 'dashboard', 'current.json');
-  console.log(`[OK] Snapshot path: ${snapPath}`);
-  console.log(`[OK] Snapshot exists: ${fs.existsSync(snapPath)}`);
+  console.log(`[OK] Data directory verified: ${DATA_DIR}`);
 }
 
 // Helper functions for public watchlist
@@ -251,7 +248,8 @@ const HTML = `<!DOCTYPE html>
     /* Queue Items */
     .queue-list { display: flex; flex-direction: column; gap: 12px; }
     .queue-item { background: #16181c; border-radius: 12px; padding: 16px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; transition: background 0.2s; }
-    .queue-item:hover { background: #1c1f23; }
+    .queue-item.clickable { cursor: pointer; }
+    .queue-item.clickable:hover { background: #1c1f23; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
     .queue-item .info { flex: 1; }
     .queue-item .title { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
     .queue-item .meta { font-size: 13px; color: #71767b; }
@@ -268,6 +266,9 @@ const HTML = `<!DOCTYPE html>
     
     /* Actions */
     .actions { display: flex; gap: 8px; margin-left: 16px; }
+    .item-actions { display: flex; gap: 8px; align-items: center; margin-left: 16px; }
+    .btn-link { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: #2f3336; border-radius: 8px; text-decoration: none; font-size: 16px; transition: background 0.2s; }
+    .btn-link:hover { background: #3f4448; }
     .btn { background: #2f3336; border: none; color: #e7e9ea; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 20px; cursor: pointer; transition: all 0.2s; }
     .btn:hover { background: #3f4448; }
     .btn.approve { background: #00ba7c; color: #fff; }
@@ -499,12 +500,28 @@ const HTML = `<!DOCTYPE html>
         return;
       }
       
+      // Helper to generate PC URL from title
+      const getPcUrl = (title) => {
+        if (!title) return '#';
+        const slug = title.replace(/[^a-zA-Z0-9]/g, '+').replace(/++/g, '+');
+        return 'https://www.pricecharting.com/search?q=' + slug.substring(0, 50);
+      };
+      
+      // Helper to generate eBay search URL
+      const getEbayUrl = (title) => {
+        if (!title) return '#';
+        const slug = title.replace(/[^a-zA-Z0-9]/g, '+').replace(/++/g, '+');
+        return 'https://www.ebay.com/sch/i.html?_nkw=' + slug.substring(0, 40);
+      };
+      
       document.getElementById('queueList').innerHTML = q.map(item => {
         const edge = parseFloat(item.edgePct);
         const edgeClass = edge >= 0 ? 'positive' : 'negative';
         const edgePrefix = edge >= 0 ? '+' : '';
+        const pcUrl = getPcUrl(item.title);
+        const ebayUrl = getEbayUrl(item.title);
         
-        return '<div class="queue-item">' +
+        return '<div class="queue-item clickable" onclick="event.stopPropagation(); window.open(\\'' + ebayUrl + '\\', \\'_blank\\')">' +
           '<div class="info">' +
             '<div class="title">' + escapeHtml(item.title?.substring(0, 60) || '') + '</div>' +
             '<div class="meta">' + (item.reason || '') + ' • ' + (item.source || '') + '</div>' +
@@ -515,7 +532,8 @@ const HTML = `<!DOCTYPE html>
             '<div class="vs">vs PC $' + (item.pcPrice || '-') + '</div>' +
             '<div class="edge ' + edgeClass + '">' + edgePrefix + edge + '%</div>' +
           '</div>' +
-          '<div class="actions">' +
+          '<div class="item-actions" onclick="event.stopPropagation()">' +
+            '<a href="' + pcUrl + '" target="_blank" class="btn-link" title="Open in PriceCharting">📊</a>' +
             '<button class="btn approve" onclick="takeAction(\\'' + item.itemId + '\\', \\'PASS\\')">✓</button>' +
             '<button class="btn drop" onclick="takeAction(\\'' + item.itemId + '\\', \\'DROP\\')">✗</button>' +
           '</div>' +
