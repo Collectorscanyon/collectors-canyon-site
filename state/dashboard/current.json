@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T20:59:14.167Z",
+  "updated": "2026-02-16T21:01:16.849Z",
   "stats": {
     "A": {
       "totalRuns": 0,
@@ -15,7 +15,7 @@
     },
     "B": {
       "totalRuns": 10,
-      "totalScan": 4296,
+      "totalScan": 3936,
       "totalPass": 9,
       "totalReview": 0,
       "totalResolved": 1,
@@ -29,6 +29,23 @@
   "runs": {
     "A": [],
     "B": [
+      {
+        "timestamp": "2026-02-16T21:01:12.045Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-21-01-08",
+        "scan": 0,
+        "pass": 0,
+        "review": 0,
+        "resolved": 0,
+        "drop": 0,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
       {
         "timestamp": "2026-02-16T20:30:38.496Z",
         "type": "RUN_SUMMARY",
@@ -175,23 +192,6 @@
         "review": 0,
         "resolved": 0,
         "drop": 53,
-        "overpriced": 0,
-        "relookupCorrections": 0,
-        "variantAutoResolved": 0,
-        "memoryHits": 0,
-        "memoryStale": 0,
-        "variantAutoResolveBlocked": 0
-      },
-      {
-        "timestamp": "2026-02-16T19:01:09.956Z",
-        "type": "RUN_SUMMARY",
-        "lane": "B",
-        "runId": "lane-b-2026-02-16-19-00-50",
-        "scan": 360,
-        "pass": 0,
-        "review": 0,
-        "resolved": 0,
-        "drop": 0,
         "overpriced": 0,
         "relookupCorrections": 0,
         "variantAutoResolved": 0,
