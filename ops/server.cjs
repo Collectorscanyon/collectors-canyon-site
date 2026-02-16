@@ -15,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3847;
-const WORKSPACE = process.env.WORKSPACE || path.dirname(path.dirname(__dirname));
+const WORKSPACE = process.env.WORKSPACE || (process.env.RENDER ? '/opt/render/project/src' : process.cwd());
 const DATA_DIR = process.env.OPS_DATA_DIR || WORKSPACE;
 const AUTH_TOKEN = process.env.OPS_DASHBOARD_TOKEN || null;
 const READ_ONLY = process.env.OPS_READ_ONLY === 'true';
@@ -51,7 +51,9 @@ function verifyDataDir() {
     process.exit(1);
   }
   
-  console.log(`[OK] Data directory verified: ${DATA_DIR}`);
+  console.log(`[OK] Data directory: ${DATA_DIR}`);
+  console.log(`[OK] Snapshot path: ${SNAPSHOT_PATH}`);
+  console.log(`[OK] Snapshot exists: ${fs.existsSync(SNAPSHOT_PATH)}`);
 }
 
 // Helper functions for public watchlist
