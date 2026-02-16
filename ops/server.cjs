@@ -15,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3847;
-const WORKSPACE = process.env.WORKSPACE || (process.env.RENDER ? '/opt/render/project/src' : process.cwd());
+const WORKSPACE = process.env.WORKSPACE || '/home/perry/clawd/CARDSHARK_EMPIRE';
 const DATA_DIR = process.env.OPS_DATA_DIR || WORKSPACE;
 const AUTH_TOKEN = process.env.OPS_DASHBOARD_TOKEN || null;
 const READ_ONLY = process.env.OPS_READ_ONLY === 'true';
@@ -500,13 +500,11 @@ const HTML = `<!DOCTYPE html>
         return;
       }
       
-      // Helper to generate PC URL from title - try different formats
+      // Helper to generate PC URL - use Google search to find the card
       const getPcUrl = (title) => {
         if (!title) return '#';
-        // Extract Pokemon name and set info for better search
-        const search = encodeURIComponent(title.replace(/[^a-zA-Z0-9 ]/g, '').trim());
-        // Try the main site with search hash - often works better
-        return 'https://www.pricecharting.com/#search=' + search.substring(0, 30);
+        const search = encodeURIComponent(title + ' site:pricecharting.com');
+        return 'https://www.google.com/search?q=' + search;
       };
       
       // Helper to generate eBay search URL (actual listing URLs not captured in pipeline)
