@@ -15,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3847;
-const WORKSPACE = process.env.WORKSPACE || path.dirname(__dirname);
+const WORKSPACE = process.env.WORKSPACE || '/home/perry/clawd/CARDSHARK_EMPIRE';
 const DATA_DIR = process.env.OPS_DATA_DIR || WORKSPACE;
 const AUTH_TOKEN = process.env.OPS_DASHBOARD_TOKEN || null;
 const READ_ONLY = process.env.OPS_READ_ONLY === 'true';
@@ -282,6 +282,19 @@ const HTML = `<!DOCTYPE html>
     /* Refresh */
     .refresh-btn { background: #16181c; border: 1px solid #2f3336; color: #71767b; padding: 8px 16px; border-radius: 20px; cursor: pointer; font-size: 13px; }
     .refresh-btn:hover { background: #1c1f23; color: #e7e9ea; }
+    
+    /* Courtyard Stats */
+    .courtyard-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+    .stat-card { background: #16181c; border-radius: 12px; padding: 16px; text-align: center; }
+    .stat-card .val { font-size: 28px; font-weight: 700; color: #1d9bf0; }
+    .stat-card .lbl { font-size: 11px; color: #71767b; text-transform: uppercase; margin-top: 4px; }
+    .stat-card.warning .val { color: #ffd400; }
+    
+    .courtyard-item { display: grid; grid-template-columns: 1fr auto auto; gap: 16px; align-items: center; }
+    .courtyard-item .badges { display: flex; gap: 6px; }
+    .courtyard-item .badge { font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
+    .courtyard-item .badge.stale { background: #f4212e; color: #fff; }
+    .courtyard-item .badge.relist { background: #ffd400; color: #000; }
   </style>
 </head>
 <body>
@@ -306,6 +319,7 @@ const HTML = `<!DOCTYPE html>
     
     <!-- Tabs -->
     <div class="tabs">
+      <button class="tab" data-tab="courtyard" onclick="setTab('courtyard')">Courtyard <span class="count" id="countCourtyard">0</span></button>
       <button class="tab active" data-tab="ready" onclick="setTab('ready')">Ready <span class="count" id="countReady">0</span></button>
       <button class="tab" data-tab="review" onclick="setTab('review')">Review <span class="count" id="countReview">0</span></button>
       <button class="tab" data-tab="overpriced" onclick="setTab('overpriced')">Overpriced <span class="count" id="countOverpriced">0</span></button>
@@ -320,7 +334,7 @@ const HTML = `<!DOCTYPE html>
 
   <script>
     let currentData = null;
-    let currentTab = 'ready';
+    let currentTab = 'courtyard';
     
     async function loadData() {
       try {
@@ -355,6 +369,10 @@ const HTML = `<!DOCTYPE html>
       document.getElementById('countOverpriced').textContent = q.overpriced?.length || 0;
       document.getElementById('countHold').textContent = q.hold?.length || 0;
       
+      // Courtyard stats
+      const c = currentData.courtyard?.stats || {};
+      document.getElementById('countCourtyard').textContent = c.listedCount || 0;
+      
       renderQueue();
     }
     
@@ -367,6 +385,46 @@ const HTML = `<!DOCTYPE html>
     
     function renderQueue() {
       if (!currentData) return;
+      
+      // Courtyard tab
+      if (currentTab === 'courtyard') {
+        const c = currentData.courtyard;
+        if (!c || !c.listed?.length) {
+          document.getElementById('queueList').innerHTML = '<div class="empty"><div class="icon">📦</div><div>No Courtyard listings</div></div>';
+          return;
+        }
+        
+        const stats = c.stats || {};
+        document.getElementById('queueList').innerHTML = 
+          '<div class="courtyard-stats">' +
+            '<div class="stat-card"><div class="val">' + stats.listedCount + '</div><div class="lbl">Listed</div></div>' +
+            '<div class="stat-card"><div class="val">' + stats.queueCount + '</div><div class="lbl">Queue</div></div>' +
+            '<div class="stat-card warning"><div class="val">' + stats.relistDueCount + '</div><div class="lbl">Relist Due</div></div>' +
+            '<div class="stat-card"><div class="val">' + stats.staleCount + '</div><div class="lbl">Stale</div></div>' +
+          '</div>' +
+          c.listed.map(item => {
+            const daysAgo = Math.floor((Date.now() - new Date(item.listedAt)) / (1000*60*60*24));
+            const isStale = daysAgo > 14;
+            const isRelistDue = daysAgo > 7 && daysAgo <= 14;
+            return '<div class="queue-item courtyard-item">' +
+              '<div class="info">' +
+                '<div class="title">' + escapeHtml(item.cardName?.substring(0, 60) || 'Unknown') + '</div>' +
+                '<div class="meta">Vault: ' + (item.vaultId?.substring(0, 12) || '') + '...</div>' +
+              '</div>' +
+              '<div class="price">' +
+                '<div class="amount">$' + item.price + '</div>' +
+                '<div class="vs">' + daysAgo + ' days ago</div>' +
+              '</div>' +
+              '<div class="badges">' +
+                (isStale ? '<span class="badge stale">STALE</span>' : '') +
+                (isRelistDue ? '<span class="badge relist">RELIST</span>' : '') +
+              '</div>' +
+            '</div>';
+          }).join('');
+        return;
+      }
+      
+      // Deal queue tabs
       const q = currentData.queues?.B?.[currentTab] || [];
       
       if (q.length === 0) {
