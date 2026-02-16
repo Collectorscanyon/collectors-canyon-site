@@ -744,13 +744,28 @@
     
     async function loadWatchlist() {
       try {
-        const res = await fetch(endpoint, { cache: "no-store" });
-        const data = await res.json();
-        return data.watchlist || [];
+        // Try API first (for live ops backend)
+        const res = await fetch(`${API_BASE}/api/public/watchlist`, { cache: "no-store" });
+        if (res.ok) {
+          const data = await res.json();
+          return data.watchlist || [];
+        }
+      } catch (e) {
+        console.log('API not available, trying static file...');
+      }
+      
+      // Fallback: try local static file
+      try {
+        const res = await fetch('/api/public.json');
+        if (res.ok) {
+          const data = await res.json();
+          return data.watchlist || [];
+        }
       } catch (e) {
         console.error('Failed to load watchlist:', e);
-        return [];
       }
+      
+      return [];
     }
     
     function formatPct(n) {
