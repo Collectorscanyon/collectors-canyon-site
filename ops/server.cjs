@@ -52,7 +52,7 @@ function verifyDataDir() {
   }
   
   console.log(`[OK] Data directory: ${DATA_DIR}`);
-  console.log(`[OK] Snapshot path: ${SNAPSHOT_PATH}`);
+  console.log(`[OK] Snapshot path: ${path.join(DATA_DIR, 'state', 'dashboard', 'current.json')}`);
   console.log(`[OK] Snapshot exists: ${fs.existsSync(SNAPSHOT_PATH)}`);
 }
 
