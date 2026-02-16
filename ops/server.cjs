@@ -295,11 +295,26 @@ const HTML = `<!DOCTYPE html>
     .courtyard-item .badge { font-size: 10px; font-weight: 700; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
     .courtyard-item .badge.stale { background: #f4212e; color: #fff; }
     .courtyard-item .badge.relist { background: #ffd400; color: #000; }
+    
+    /* Main Navigation */
+    .main-nav { display: flex; gap: 8px; margin-left: 32px; }
+    .nav-link { color: #71767b; text-decoration: none; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 20px; transition: all 0.2s; }
+    .nav-link:hover { background: #16181c; color: #e7e9ea; }
+    .nav-link.active { background: #1d9bf0; color: #fff; }
+    
+    .header { display: flex; align-items: center; justify-content: space-between; }
   </style>
 </head>
 <body>
   <div class="header">
     <h1>🦈 CardShark Ops Console</h1>
+    <nav class="main-nav">
+      <a href="/" class="nav-link active" data-page="deals">eBay Deals</a>
+      <a href="/?page=courtyard" class="nav-link" data-page="courtyard">Courtyard</a>
+      <a href="/?page=psa" class="nav-link" data-page="psa">PSA</a>
+      <a href="/?page=inventory" class="nav-link" data-page="inventory">Inventory</a>
+      <a href="/?page=finance" class="nav-link" data-page="finance">Finance</a>
+    </nav>
     <div>
       <span class="updated" id="lastUpdated"></span>
       <button class="refresh-btn" onclick="loadData()" style="margin-left: 12px;">↻ Refresh</button>
@@ -307,34 +322,66 @@ const HTML = `<!DOCTYPE html>
   </div>
   
   <div class="container">
-    <!-- KPI Grid -->
-    <div class="kpi-grid" id="kpiGrid">
-      <div class="kpi-card scan"><div class="label">Scanned</div><div class="value" id="kpiScan">-</div></div>
-      <div class="kpi-card pass"><div class="label">Passed</div><div class="value" id="kpiPass">-</div></div>
-      <div class="kpi-card review"><div class="label">Review</div><div class="value" id="kpiReview">-</div></div>
-      <div class="kpi-card drop"><div class="label">Dropped</div><div class="value" id="kpiDrop">-</div></div>
-      <div class="kpi-card overpriced"><div class="label">Overpriced</div><div class="value" id="kpiOverpriced">-</div></div>
-      <div class="kpi-card memory"><div class="label">Memory Hits</div><div class="value" id="kpiMemory">-</div></div>
+    <!-- eBay Deals Page -->
+    <div class="page" id="page-deals">
+      <!-- KPI Grid -->
+      <div class="kpi-grid" id="kpiGrid">
+        <div class="kpi-card scan"><div class="label">Scanned</div><div class="value" id="kpiScan">-</div></div>
+        <div class="kpi-card pass"><div class="label">Passed</div><div class="value" id="kpiPass">-</div></div>
+        <div class="kpi-card review"><div class="label">Review</div><div class="value" id="kpiReview">-</div></div>
+        <div class="kpi-card drop"><div class="label">Dropped</div><div class="value" id="kpiDrop">-</div></div>
+        <div class="kpi-card overpriced"><div class="label">Overpriced</div><div class="value" id="kpiOverpriced">-</div></div>
+        <div class="kpi-card memory"><div class="label">Memory Hits</div><div class="value" id="kpiMemory">-</div></div>
+      </div>
+      
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab active" data-tab="ready" onclick="setTab('ready')">Ready <span class="count" id="countReady">0</span></button>
+        <button class="tab" data-tab="review" onclick="setTab('review')">Review <span class="count" id="countReview">0</span></button>
+        <button class="tab" data-tab="overpriced" onclick="setTab('overpriced')">Overpriced <span class="count" id="countOverpriced">0</span></button>
+        <button class="tab" data-tab="hold" onclick="setTab('hold')">Hold/Scam <span class="count" id="countHold">0</span></button>
+      </div>
+      
+      <!-- Queue List -->
+      <div class="queue-list" id="queueList">
+        <div class="loading">Loading...</div>
+      </div>
     </div>
     
-    <!-- Tabs -->
-    <div class="tabs">
-      <button class="tab" data-tab="courtyard" onclick="setTab('courtyard')">Courtyard <span class="count" id="countCourtyard">0</span></button>
-      <button class="tab active" data-tab="ready" onclick="setTab('ready')">Ready <span class="count" id="countReady">0</span></button>
-      <button class="tab" data-tab="review" onclick="setTab('review')">Review <span class="count" id="countReview">0</span></button>
-      <button class="tab" data-tab="overpriced" onclick="setTab('overpriced')">Overpriced <span class="count" id="countOverpriced">0</span></button>
-      <button class="tab" data-tab="hold" onclick="setTab('hold')">Hold/Scam <span class="count" id="countHold">0</span></button>
+    <!-- Courtyard Page -->
+    <div class="page" id="page-courtyard" style="display:none;">
+      <h2>🏛️ Courtyard Inventory</h2>
+      <div class="queue-list" id="courtyardList">
+        <div class="loading">Loading...</div>
+      </div>
     </div>
     
-    <!-- Queue List -->
-    <div class="queue-list" id="queueList">
-      <div class="loading">Loading...</div>
+    <!-- PSA Page -->
+    <div class="page" id="page-psa" style="display:none;">
+      <h2>📋 PSA Submissions</h2>
+      <div class="empty"><div class="icon">📦</div><div>PSA tracking coming soon</div></div>
+    </div>
+    
+    <!-- Inventory Page -->
+    <div class="page" id="page-inventory" style="display:none;">
+      <h2>💎 Card Vault</h2>
+      <div class="empty"><div class="icon">📦</div><div>Inventory tracking coming soon</div></div>
+    </div>
+    
+    <!-- Finance Page -->
+    <div class="page" id="page-finance" style="display:none;">
+      <h2>💰 Finance & ROI</h2>
+      <div class="empty"><div class="icon">📦</div><div>Finance tracking coming soon</div></div>
     </div>
   </div>
 
   <script>
+    // Page routing
+    const params = new URLSearchParams(window.location.search);
+    const currentPage = params.get('page') || 'deals';
+    
     let currentData = null;
-    let currentTab = 'courtyard';
+    let currentTab = 'ready';
     
     async function loadData() {
       try {
@@ -348,6 +395,24 @@ const HTML = `<!DOCTYPE html>
     
     function render() {
       if (!currentData) return;
+      
+      // Show correct page
+      document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+      document.getElementById('page-' + currentPage).style.display = 'block';
+      
+      // Update nav
+      document.querySelectorAll('.nav-link').forEach(n => {
+        n.classList.toggle('active', n.dataset.page === currentPage);
+      });
+      
+      // Render page-specific content
+      if (currentPage === 'courtyard') {
+        renderCourtyard();
+        return;
+      }
+      
+      // Only render deal page content if on deals
+      if (currentPage !== 'deals') return;
       
       const { summary, stats, queues } = currentData;
       const b = stats?.B || {};
@@ -369,9 +434,8 @@ const HTML = `<!DOCTYPE html>
       document.getElementById('countOverpriced').textContent = q.overpriced?.length || 0;
       document.getElementById('countHold').textContent = q.hold?.length || 0;
       
-      // Courtyard stats
-      const c = currentData.courtyard?.stats || {};
-      document.getElementById('countCourtyard').textContent = c.listedCount || 0;
+      // Courtyard stats (only if on deals page)
+      // Removed - now on separate page
       
       renderQueue();
     }
@@ -383,46 +447,46 @@ const HTML = `<!DOCTYPE html>
       renderQueue();
     }
     
-    function renderQueue() {
+    function renderCourtyard() {
       if (!currentData) return;
       
-      // Courtyard tab
-      if (currentTab === 'courtyard') {
-        const c = currentData.courtyard;
-        if (!c || !c.listed?.length) {
-          document.getElementById('queueList').innerHTML = '<div class="empty"><div class="icon">📦</div><div>No Courtyard listings</div></div>';
-          return;
-        }
-        
-        const stats = c.stats || {};
-        document.getElementById('queueList').innerHTML = 
-          '<div class="courtyard-stats">' +
-            '<div class="stat-card"><div class="val">' + stats.listedCount + '</div><div class="lbl">Listed</div></div>' +
-            '<div class="stat-card"><div class="val">' + stats.queueCount + '</div><div class="lbl">Queue</div></div>' +
-            '<div class="stat-card warning"><div class="val">' + stats.relistDueCount + '</div><div class="lbl">Relist Due</div></div>' +
-            '<div class="stat-card"><div class="val">' + stats.staleCount + '</div><div class="lbl">Stale</div></div>' +
-          '</div>' +
-          c.listed.map(item => {
-            const daysAgo = Math.floor((Date.now() - new Date(item.listedAt)) / (1000*60*60*24));
-            const isStale = daysAgo > 14;
-            const isRelistDue = daysAgo > 7 && daysAgo <= 14;
-            return '<div class="queue-item courtyard-item">' +
-              '<div class="info">' +
-                '<div class="title">' + escapeHtml(item.cardName?.substring(0, 60) || 'Unknown') + '</div>' +
-                '<div class="meta">Vault: ' + (item.vaultId?.substring(0, 12) || '') + '...</div>' +
-              '</div>' +
-              '<div class="price">' +
-                '<div class="amount">$' + item.price + '</div>' +
-                '<div class="vs">' + daysAgo + ' days ago</div>' +
-              '</div>' +
-              '<div class="badges">' +
-                (isStale ? '<span class="badge stale">STALE</span>' : '') +
-                (isRelistDue ? '<span class="badge relist">RELIST</span>' : '') +
-              '</div>' +
-            '</div>';
-          }).join('');
+      const c = currentData.courtyard;
+      if (!c || !c.listed?.length) {
+        document.getElementById('courtyardList').innerHTML = '<div class="empty"><div class="icon">📦</div><div>No Courtyard listings</div></div>';
         return;
       }
+      
+      const stats = c.stats || {};
+      document.getElementById('courtyardList').innerHTML = 
+        '<div class="courtyard-stats">' +
+          '<div class="stat-card"><div class="val">' + stats.listedCount + '</div><div class="lbl">Listed</div></div>' +
+          '<div class="stat-card"><div class="val">' + stats.queueCount + '</div><div class="lbl">Queue</div></div>' +
+          '<div class="stat-card warning"><div class="val">' + stats.relistDueCount + '</div><div class="lbl">Relist Due</div></div>' +
+          '<div class="stat-card"><div class="val">' + stats.staleCount + '</div><div class="lbl">Stale</div></div>' +
+        '</div>' +
+        c.listed.map(item => {
+          const daysAgo = Math.floor((Date.now() - new Date(item.listedAt)) / (1000*60*60*24));
+          const isStale = daysAgo > 14;
+          const isRelistDue = daysAgo > 7 && daysAgo <= 14;
+          return '<div class="queue-item courtyard-item">' +
+            '<div class="info">' +
+              '<div class="title">' + escapeHtml(item.cardName?.substring(0, 60) || 'Unknown') + '</div>' +
+              '<div class="meta">Vault: ' + (item.vaultId?.substring(0, 12) || '') + '...</div>' +
+            '</div>' +
+            '<div class="price">' +
+              '<div class="amount">$' + item.price + '</div>' +
+              '<div class="vs">' + daysAgo + ' days ago</div>' +
+            '</div>' +
+            '<div class="badges">' +
+              (isStale ? '<span class="badge stale">STALE</span>' : '') +
+              (isRelistDue ? '<span class="badge relist">RELIST</span>' : '') +
+            '</div>' +
+          '</div>';
+        }).join('');
+    }
+    
+    function renderQueue() {
+      if (!currentData) return;
       
       // Deal queue tabs
       const q = currentData.queues?.B?.[currentTab] || [];
