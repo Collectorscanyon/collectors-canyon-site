@@ -526,7 +526,7 @@ const HTML = `<!DOCTYPE html>
         
         // Click opens eBay if URL exists, otherwise does nothing
         const clickHandler = item.url 
-          ? 'onclick="event.stopPropagation(); window.open(\'' + item.url + '\', \'_blank\')"'
+          ? 'onclick="event.stopPropagation(); window.open(item.url, \"_blank\")"'
           : '';
         const cursorStyle = item.url ? 'cursor: pointer;' : '';
         
