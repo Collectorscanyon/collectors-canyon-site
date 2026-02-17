@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T22:26:46.321Z",
+  "updated": "2026-02-17T00:05:10.763Z",
   "stats": {
     "A": {
       "totalRuns": 0,
@@ -15,11 +15,11 @@
     },
     "B": {
       "totalRuns": 10,
-      "totalScan": 4052,
+      "totalScan": 4281,
       "totalPass": 9,
       "totalReview": 0,
       "totalResolved": 1,
-      "totalDrop": 104,
+      "totalDrop": 1,
       "totalOverpriced": 8,
       "totalMemoryHits": 0,
       "totalMemoryStale": 0,
@@ -29,6 +29,40 @@
   "runs": {
     "A": [],
     "B": [
+      {
+        "timestamp": "2026-02-16T23:30:39.232Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-23-30-05",
+        "scan": 474,
+        "pass": 0,
+        "review": 0,
+        "resolved": 0,
+        "drop": 0,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
+      {
+        "timestamp": "2026-02-16T22:30:37.739Z",
+        "type": "RUN_SUMMARY",
+        "lane": "B",
+        "runId": "lane-b-2026-02-16-22-30-04",
+        "scan": 475,
+        "pass": 0,
+        "review": 0,
+        "resolved": 0,
+        "drop": 1,
+        "overpriced": 0,
+        "relookupCorrections": 0,
+        "variantAutoResolved": 0,
+        "memoryHits": 0,
+        "memoryStale": 0,
+        "variantAutoResolveBlocked": 0
+      },
       {
         "timestamp": "2026-02-16T21:30:38.233Z",
         "type": "RUN_SUMMARY",
@@ -158,40 +192,6 @@
         "review": 0,
         "resolved": 0,
         "drop": 0,
-        "overpriced": 0,
-        "relookupCorrections": 0,
-        "variantAutoResolved": 0,
-        "memoryHits": 0,
-        "memoryStale": 0,
-        "variantAutoResolveBlocked": 0
-      },
-      {
-        "timestamp": "2026-02-16T19:03:03.675Z",
-        "type": "RUN_SUMMARY",
-        "lane": "B",
-        "runId": "lane-b-2026-02-16-19-02-43",
-        "scan": 360,
-        "pass": 0,
-        "review": 0,
-        "resolved": 0,
-        "drop": 65,
-        "overpriced": 0,
-        "relookupCorrections": 0,
-        "variantAutoResolved": 0,
-        "memoryHits": 0,
-        "memoryStale": 0,
-        "variantAutoResolveBlocked": 0
-      },
-      {
-        "timestamp": "2026-02-16T19:02:33.495Z",
-        "type": "RUN_SUMMARY",
-        "lane": "B",
-        "runId": "lane-b-2026-02-16-19-02-14",
-        "scan": 360,
-        "pass": 0,
-        "review": 0,
-        "resolved": 0,
-        "drop": 39,
         "overpriced": 0,
         "relookupCorrections": 0,
         "variantAutoResolved": 0,
@@ -1808,7 +1808,7 @@
       "queueCount": 252,
       "soldCount": 0,
       "staleCount": 0,
-      "relistDueCount": 11
+      "relistDueCount": 20
     }
   },
   "summary": {
