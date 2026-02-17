@@ -433,7 +433,7 @@ const HTML = `<!DOCTYPE html>
       
       // Counts
       const q = queues?.B || {};
-      document.title = 'Ready: ' + (q.ready?.length || 0) + ' | CardShark Ops';
+      
       document.getElementById('countReady').textContent = q.ready?.length || 0;
       document.getElementById('countReview').textContent = q.review?.length || 0;
       document.getElementById('countOverpriced').textContent = q.overpriced?.length || 0;
