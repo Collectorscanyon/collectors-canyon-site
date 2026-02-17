@@ -15,7 +15,7 @@ const fs = require('fs');
 const path = require('path');
 
 const PORT = process.env.PORT || 3847;
-const WORKSPACE = process.env.WORKSPACE || (process.env.RENDER ? '/opt/render/project/src' : process.cwd());
+const WORKSPACE = process.env.WORKSPACE || '/home/perry/clawd/CARDSHARK_EMPIRE';
 const DATA_DIR = process.env.OPS_DATA_DIR || WORKSPACE;
 const AUTH_TOKEN = process.env.OPS_DASHBOARD_TOKEN || null;
 const READ_ONLY = process.env.OPS_READ_ONLY === 'true';
@@ -801,4 +801,3 @@ server.listen(PORT, () => {
 });
 
 module.exports = { server, PORT };
-// Deploy: Mon Feb 16 04:57:45 PM MST 2026
