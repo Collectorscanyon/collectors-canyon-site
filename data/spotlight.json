@@ -1,0 +1,50 @@
+[
+  {
+    "id": "pikachu-illustrator-2024-psa9",
+    "title": "Pikachu Illustration Contest",
+    "subtitle": "2024 World Championship",
+    "grade": "PSA 9",
+    "collection": "World Championship",
+    "badge": "Featured",
+    "badgeVariant": "accent",
+    "videoUrl": "https://static.courtyard.io/graded-cards-renders/PSA%20141419834/nft_animation.mp4",
+    "imageUrl": null,
+    "description": "A masterpiece from the 2024 Pokemon World Championship. One of the finest examples of this legendary card in existence.",
+    "tier": "World Championship",
+    "featured": true,
+    "source": "Graded by PSA",
+    "addedAt": "2026-03-20"
+  },
+  {
+    "id": "charizard-base-set-psa9",
+    "title": "Charizard",
+    "subtitle": "1st Edition Shadowless",
+    "grade": "PSA 9",
+    "collection": "Base Set",
+    "badge": "Vault Favorite",
+    "badgeVariant": "gold",
+    "videoUrl": null,
+    "imageUrl": null,
+    "description": "The original. A PSA 9 1st Edition Shadowless Charizard — the crown jewel of any serious collection.",
+    "tier": "Vintage Grail",
+    "featured": true,
+    "source": "Graded by PSA",
+    "addedAt": "2026-03-20"
+  },
+  {
+    "id": "blastoise-1st-ed-psa8",
+    "title": "Blastoise",
+    "subtitle": "1st Edition Shadowless",
+    "grade": "PSA 8",
+    "collection": "Base Set",
+    "badge": "Long-Term Hold",
+    "badgeVariant": "muted",
+    "videoUrl": null,
+    "imageUrl": null,
+    "description": "The blue backbone of the original trio. A generational hold with exceptional upside.",
+    "tier": "Vintage Grail",
+    "featured": false,
+    "source": "Graded by PSA",
+    "addedAt": "2026-03-20"
+  }
+]

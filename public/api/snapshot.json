@@ -1,0 +1,317 @@
+{
+  "version": "1.0",
+  "generatedAt": "2026-03-20T22:16:01.357Z",
+  "featuredAssets": [
+    {
+      "id": "pikachu-illustrator-2024-psa9",
+      "title": "Pikachu Illustration Contest",
+      "subtitle": "2024 World Championship",
+      "grade": "PSA 9",
+      "collection": "World Championship",
+      "badge": "Featured",
+      "badgeVariant": "accent",
+      "videoUrl": "https://static.courtyard.io/graded-cards-renders/PSA%20141419834/nft_animation.mp4",
+      "imageUrl": null,
+      "description": "A masterpiece from the 2024 Pokemon World Championship. One of the finest examples of this legendary card in existence.",
+      "tier": "World Championship",
+      "featured": true,
+      "source": "Graded by PSA",
+      "addedAt": "2026-03-20"
+    },
+    {
+      "id": "charizard-base-set-psa9",
+      "title": "Charizard",
+      "subtitle": "1st Edition Shadowless",
+      "grade": "PSA 9",
+      "collection": "Base Set",
+      "badge": "Vault Favorite",
+      "badgeVariant": "gold",
+      "videoUrl": null,
+      "imageUrl": null,
+      "description": "The original. A PSA 9 1st Edition Shadowless Charizard — the crown jewel of any serious collection.",
+      "tier": "Vintage Grail",
+      "featured": true,
+      "source": "Graded by PSA",
+      "addedAt": "2026-03-20"
+    },
+    {
+      "id": "blastoise-1st-ed-psa8",
+      "title": "Blastoise",
+      "subtitle": "1st Edition Shadowless",
+      "grade": "PSA 8",
+      "collection": "Base Set",
+      "badge": "Long-Term Hold",
+      "badgeVariant": "muted",
+      "videoUrl": null,
+      "imageUrl": null,
+      "description": "The blue backbone of the original trio. A generational hold with exceptional upside.",
+      "tier": "Vintage Grail",
+      "featured": false,
+      "source": "Graded by PSA",
+      "addedAt": "2026-03-20"
+    },
+    {
+      "id": "mewtwo_promo_psa_10",
+      "title": "Mewtwo Promo",
+      "subtitle": "eBay sold API (30 days)",
+      "grade": "PSA 10",
+      "collection": "Graded Card",
+      "badge": "Vault Entry",
+      "badgeVariant": "muted",
+      "videoUrl": null,
+      "imageUrl": null,
+      "description": "PSA-graded Mewtwo Promo — PSA 10",
+      "tier": "Vault Entry",
+      "featured": false,
+      "vaultUpdated": "2026-02-03T22:52:25.149Z"
+    },
+    {
+      "id": "2024_pok_mon_sfa_en_shrouded_fable__050_eevee_psa_9",
+      "title": "2024 Pokémon Sfa EN-Shrouded Fable #050 Eevee",
+      "subtitle": "eBay sold (6 sales)",
+      "grade": "PSA 9",
+      "collection": "Graded Card",
+      "badge": "Vault Entry",
+      "badgeVariant": "muted",
+      "videoUrl": null,
+      "imageUrl": null,
+      "description": "PSA-graded 2024 Pokémon Sfa EN-Shrouded Fable #050 Eevee — PSA 9",
+      "tier": "Vault Entry",
+      "featured": false,
+      "vaultUpdated": "2026-02-03T22:59:48.092Z"
+    },
+    {
+      "id": "2024_pok_mon_twm_en_twilight_masquerade__193_palafin_ex_psa_9",
+      "title": "2024 Pokémon Twm EN-Twilight Masquerade #193 Palafin EX",
+      "subtitle": "eBay sold (10 sales)",
+      "grade": "PSA 9",
+      "collection": "Graded Card",
+      "badge": "Vault Entry",
+      "badgeVariant": "muted",
+      "videoUrl": null,
+      "imageUrl": null,
+      "description": "PSA-graded 2024 Pokémon Twm EN-Twilight Masquerade #193 Palafin EX — PSA 9",
+      "tier": "Vault Entry",
+      "featured": false,
+      "vaultUpdated": "2026-02-03T22:59:46.155Z"
+    },
+    {
+      "id": "venusaur_1st_edition_psa_9",
+      "title": "Venusaur 1st Edition",
+      "subtitle": "eBay sold API (30 days)",
+      "grade": "PSA 9",
+      "collection": "Graded Card",
+      "badge": "Vault Entry",
+      "badgeVariant": "muted",
+      "videoUrl": null,
+      "imageUrl": null,
+      "description": "PSA-graded Venusaur 1st Edition — PSA 9",
+      "tier": "Vault Entry",
+      "featured": false,
+      "vaultUpdated": "2026-02-03T22:48:05.160Z"
+    },
+    {
+      "id": "charizard_base_set_psa_9",
+      "title": "Charizard Base Set",
+      "subtitle": "eBay sold API (30 days)",
+      "grade": "PSA 9",
+      "collection": "Graded Card",
+      "badge": "Vault Entry",
+      "badgeVariant": "muted",
+      "videoUrl": null,
+      "imageUrl": null,
+      "description": "PSA-graded Charizard Base Set — PSA 9",
+      "tier": "Vault Entry",
+      "featured": false,
+      "vaultUpdated": "2026-02-03T22:47:51.922Z"
+    },
+    {
+      "id": "2000_artbox_dragon_ball_z__chromium_archive_edition__37_psa_8",
+      "title": "2000 Artbox Dragon Ball Z: Chromium Archive Edition #37",
+      "subtitle": "eBay sold (10 sales)",
+      "grade": "PSA 8",
+      "collection": "Graded Card",
+      "badge": "Vault Entry",
+      "badgeVariant": "muted",
+      "videoUrl": null,
+      "imageUrl": null,
+      "description": "PSA-graded 2000 Artbox Dragon Ball Z: Chromium Archive Edition #37 — PSA 8",
+      "tier": "Vault Entry",
+      "featured": false,
+      "vaultUpdated": "2026-02-03T22:59:47.176Z"
+    }
+  ],
+  "currentHunts": [
+    {
+      "id": "hunt-1",
+      "category": "Vintage Grail",
+      "title": "1st Ed Shadowless Base Set",
+      "description": "Targeting PSA 7–9 copies of Charizard, Blastoise, and Venusaur below market comps.",
+      "targetGrade": "PSA 7+",
+      "priority": "high",
+      "status": "active",
+      "icon": "🔥",
+      "setTags": [
+        "Base Set",
+        "Shadowless",
+        "1st Edition"
+      ]
+    },
+    {
+      "id": "hunt-2",
+      "category": "PSA Opportunity",
+      "title": "Pikachu Illustration Contest",
+      "description": "High-demand world championship piece. Monitoring secondary for PSA 8–9 opportunities under $8K.",
+      "targetGrade": "PSA 8+",
+      "priority": "high",
+      "status": "active",
+      "icon": "⚡",
+      "setTags": [
+        "Illustration Contest",
+        "World Championship"
+      ]
+    },
+    {
+      "id": "hunt-3",
+      "category": "Chase Card",
+      "title": "Dark Raichu NSA",
+      "description": "Hidden potential in the Japanese NSA set. Undersampled, underpriced relative to PSA pop.",
+      "targetGrade": "PSA 8+",
+      "priority": "medium",
+      "status": "active",
+      "icon": "🎯",
+      "setTags": [
+        "Japanese",
+        "NSA",
+        "Raichu"
+      ]
+    },
+    {
+      "id": "hunt-4",
+      "category": "Undervalued Slab",
+      "title": "Pop-Report Arbitrage",
+      "description": "Cards where PSA pop reports show scarcity but eBay comps haven't adjusted. Quick flip candidates.",
+      "targetGrade": "PSA 7–8",
+      "priority": "medium",
+      "status": "watching",
+      "icon": "📊",
+      "setTags": [
+        "Arbitrage",
+        "Pop Report",
+        "Secondary Market"
+      ]
+    },
+    {
+      "id": "hunt-5",
+      "category": "Modern Gem",
+      "title": "ETB Breaks / Pack Fresh Slabs",
+      "description": "Recent sets with raw PSA 10 rates. Buying sealed, cracking, and grading for resale.",
+      "targetGrade": "PSA 9–10",
+      "priority": "low",
+      "status": "exploring",
+      "icon": "✨",
+      "setTags": [
+        "Sealed",
+        "Modern",
+        "Breaks"
+      ]
+    },
+    {
+      "id": "hunt-6",
+      "category": "Jungle Set",
+      "title": "Fossil & Jungle Staples",
+      "description": "PSA 7–8 copies of key Jungle/Fossil commons and uncommons at sub-$20 lot prices.",
+      "targetGrade": "PSA 7–8",
+      "priority": "low",
+      "status": "active",
+      "icon": "🌿",
+      "setTags": [
+        "Jungle",
+        "Fossil",
+        "Budget Vintage"
+      ]
+    }
+  ],
+  "huntStats": {
+    "manualReviewCount": 17
+  },
+  "topPieces": [
+    {
+      "id": "blastoise-1st-ed-psa8",
+      "title": "Blastoise",
+      "grade": "PSA 8",
+      "set": "Base Set",
+      "description": "The blue backbone of the original trio. A generational hold with exceptional upside.",
+      "imageUrl": null,
+      "tier": "Vintage Grail",
+      "badge": "Long-Term Hold"
+    },
+    {
+      "id": "mewtwo_promo_psa_10",
+      "title": "Mewtwo Promo",
+      "grade": "PSA 10",
+      "set": "Graded Card",
+      "description": "PSA PSA 10 — sold range $331.97–$1999.98",
+      "imageUrl": null,
+      "tier": "PSA 10",
+      "badge": "Vault Entry"
+    },
+    {
+      "id": "2024_pok_mon_sfa_en_shrouded_fable__050_eevee_psa_9",
+      "title": "2024 Pokémon Sfa EN-Shrouded Fable #050 Eevee",
+      "grade": "PSA 9",
+      "set": "Graded Card",
+      "description": "PSA PSA 9 — sold range $19.95–$199",
+      "imageUrl": null,
+      "tier": "PSA 9",
+      "badge": "Vault Entry"
+    },
+    {
+      "id": "2024_pok_mon_twm_en_twilight_masquerade__193_palafin_ex_psa_9",
+      "title": "2024 Pokémon Twm EN-Twilight Masquerade #193 Palafin EX",
+      "grade": "PSA 9",
+      "set": "Graded Card",
+      "description": "PSA PSA 9 — sold range $19.99–$89.99",
+      "imageUrl": null,
+      "tier": "PSA 9",
+      "badge": "Vault Entry"
+    },
+    {
+      "id": "venusaur_1st_edition_psa_9",
+      "title": "Venusaur 1st Edition",
+      "grade": "PSA 9",
+      "set": "Graded Card",
+      "description": "PSA PSA 9 — sold range $400–$8000",
+      "imageUrl": null,
+      "tier": "PSA 9",
+      "badge": "Vault Entry"
+    },
+    {
+      "id": "charizard_base_set_psa_9",
+      "title": "Charizard Base Set",
+      "grade": "PSA 9",
+      "set": "Graded Card",
+      "description": "PSA PSA 9 — sold range $415–$3000",
+      "imageUrl": null,
+      "tier": "PSA 9",
+      "badge": "Vault Entry"
+    },
+    {
+      "id": "2000_artbox_dragon_ball_z__chromium_archive_edition__37_psa_8",
+      "title": "2000 Artbox Dragon Ball Z: Chromium Archive Edition #37",
+      "grade": "PSA 8",
+      "set": "Graded Card",
+      "description": "PSA PSA 8 — sold range $4–$268.2",
+      "imageUrl": null,
+      "tier": "PSA 8",
+      "badge": "Vault Entry"
+    }
+  ],
+  "stats": {
+    "totalVault": 10,
+    "totalPSA": 10,
+    "totalListed": 43,
+    "manualReviewCount": 17,
+    "generatedAt": "2026-03-20T22:16:01.357Z"
+  }
+}
