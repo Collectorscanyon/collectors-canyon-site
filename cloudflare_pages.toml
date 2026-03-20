@@ -1,0 +1,27 @@
+# Cloudflare Pages configuration
+# collectors-canyon-site
+
+[build]
+command = "npm install && npm run build"
+directory = "dist"
+
+[build.environment]
+NODE_VERSION = "20"
+
+# Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
