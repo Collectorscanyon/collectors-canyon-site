@@ -1,5 +1,5 @@
 import { useSnapshot } from './hooks/useSnapshot'
-import Hero from './components/Hero'
+import HeroSpotlight from './components/HeroSpotlight'
 import FeaturedCourtyard from './components/FeaturedCourtyard'
 import WhatWereHunting from './components/WhatWereHunting'
 import TopPieces from './components/TopPieces'
@@ -10,22 +10,22 @@ import Footer from './components/Footer'
 import { featuredAssets as mockFeatured, currentHunts as mockHunts, topPieces as mockPieces } from './data/mockData'
 
 function App() {
-  const { data, loading, error } = useSnapshot()
+  const { data, loading } = useSnapshot()
 
-  // Use live data when available, fall back to mock data for development
-  const featuredAssets = data?.featuredAssets || mockFeatured
+  // Use live spotlight items for the hero rotator, fall back to mock featured for other sections
+  const spotlightItems = data?.featuredAssets || mockFeatured
   const currentHunts = data?.currentHunts || mockHunts
   const topPieces = data?.topPieces || mockPieces
   const stats = data?.stats || null
 
   return (
     <div className="min-h-screen bg-[#0d0907]">
-      <Hero stats={stats} loading={loading} />
-      <FeaturedCourtyard assets={featuredAssets} />
+      <HeroSpotlight items={spotlightItems} />
+      <FeaturedCourtyard assets={spotlightItems} />
       <WhatWereHunting hunts={currentHunts} />
       <TopPieces pieces={topPieces} />
       <HowItWorks />
-      <BrandJourney />
+      <BrandJourney stats={stats} />
       <Community />
       <Footer />
     </div>

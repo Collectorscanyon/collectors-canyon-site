@@ -1,5 +1,21 @@
 [
   {
+    "id": "gary-psa9",
+    "title": "Gary",
+    "subtitle": "Courtyard Featured Asset",
+    "grade": "PSA 9",
+    "collection": "Courtyard Vault",
+    "badge": "Vault Highlight",
+    "badgeVariant": "accent",
+    "videoUrl": "https://static.courtyard.io/graded-cards-renders/PSA%2092006200/nft_animation.mp4",
+    "imageUrl": null,
+    "description": "A standout featured piece from the Courtyard collection. Courtyard video asset.",
+    "tier": "Vault Highlight",
+    "featured": true,
+    "source": "Courtyard",
+    "addedAt": "2026-03-20"
+  },
+  {
     "id": "pikachu-illustrator-2024-psa9",
     "title": "Pikachu Illustration Contest",
     "subtitle": "2024 World Championship",
@@ -43,7 +59,7 @@
     "imageUrl": null,
     "description": "The blue backbone of the original trio. A generational hold with exceptional upside.",
     "tier": "Vintage Grail",
-    "featured": false,
+    "featured": true,
     "source": "Graded by PSA",
     "addedAt": "2026-03-20"
   }

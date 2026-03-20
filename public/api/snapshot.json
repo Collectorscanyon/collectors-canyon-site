@@ -1,7 +1,23 @@
 {
   "version": "1.0",
-  "generatedAt": "2026-03-20T22:16:01.357Z",
+  "generatedAt": "2026-03-20T22:18:50.314Z",
   "featuredAssets": [
+    {
+      "id": "gary-psa9",
+      "title": "Gary",
+      "subtitle": "Courtyard Featured Asset",
+      "grade": "PSA 9",
+      "collection": "Courtyard Vault",
+      "badge": "Vault Highlight",
+      "badgeVariant": "accent",
+      "videoUrl": "https://static.courtyard.io/graded-cards-renders/PSA%2092006200/nft_animation.mp4",
+      "imageUrl": null,
+      "description": "A standout featured piece from the Courtyard collection. Courtyard video asset.",
+      "tier": "Vault Highlight",
+      "featured": true,
+      "source": "Courtyard",
+      "addedAt": "2026-03-20"
+    },
     {
       "id": "pikachu-illustrator-2024-psa9",
       "title": "Pikachu Illustration Contest",
@@ -46,7 +62,7 @@
       "imageUrl": null,
       "description": "The blue backbone of the original trio. A generational hold with exceptional upside.",
       "tier": "Vintage Grail",
-      "featured": false,
+      "featured": true,
       "source": "Graded by PSA",
       "addedAt": "2026-03-20"
     },
@@ -237,16 +253,6 @@
   },
   "topPieces": [
     {
-      "id": "blastoise-1st-ed-psa8",
-      "title": "Blastoise",
-      "grade": "PSA 8",
-      "set": "Base Set",
-      "description": "The blue backbone of the original trio. A generational hold with exceptional upside.",
-      "imageUrl": null,
-      "tier": "Vintage Grail",
-      "badge": "Long-Term Hold"
-    },
-    {
       "id": "mewtwo_promo_psa_10",
       "title": "Mewtwo Promo",
       "grade": "PSA 10",
@@ -312,6 +318,6 @@
     "totalPSA": 10,
     "totalListed": 43,
     "manualReviewCount": 17,
-    "generatedAt": "2026-03-20T22:16:01.357Z"
+    "generatedAt": "2026-03-20T22:18:50.314Z"
   }
 }
