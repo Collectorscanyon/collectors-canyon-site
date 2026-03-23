@@ -29,6 +29,7 @@ export default function FeaturedCard({
   imageUrl,
   description,
   tier = 'Featured',
+  courtyardUrl,
   size = 'default', // 'default' | 'large' | 'small'
 }) {
   const [videoLoaded, setVideoLoaded] = useState(false)
@@ -44,14 +45,21 @@ export default function FeaturedCard({
   const hasVideo = videoUrl && !videoError
   const hasImage = imageUrl && !hasVideo
 
+  const CardWrapper = courtyardUrl ? 'a' : 'div'
+  const wrapperProps = courtyardUrl
+    ? { href: courtyardUrl, target: '_blank', rel: 'noopener noreferrer' }
+    : {}
+
   return (
-    <div
+    <CardWrapper
+      {...wrapperProps}
       className={`
         ${sizeClasses[size]}
         group relative rounded-2xl overflow-hidden
         glass-card-hover card-glow
         transition-all duration-500 ease-out
         ${TIER_GLOW[tier] || 'shadow-[0_0_30px_rgba(212,130,58,0.15)]'}
+        ${courtyardUrl ? 'cursor-pointer' : ''}
       `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -164,6 +172,16 @@ export default function FeaturedCard({
         transition-opacity duration-500
         ${isHovered ? 'opacity-100' : 'opacity-0'}
       `} />
-    </div>
+
+      {/* Courtyard link indicator */}
+      {courtyardUrl && (
+        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="px-2.5 py-1 rounded-full bg-canyon-deep/80 backdrop-blur-sm border border-canyon-border text-canyon-sand text-xs font-medium flex items-center gap-1.5">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View on Courtyard
+          </div>
+        </div>
+      )}
+    </CardWrapper>
   )
 }

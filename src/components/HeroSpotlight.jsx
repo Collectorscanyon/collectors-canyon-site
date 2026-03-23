@@ -102,6 +102,17 @@ export default function HeroSpotlight({ items = [] }) {
             {/* Card frame */}
             <div className="absolute inset-0 rounded-2xl overflow-hidden glass-card">
               
+              {/* Courtyard link overlay */}
+              {active.courtyardUrl && (
+                <a
+                  href={active.courtyardUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-30 cursor-pointer"
+                  aria-label={`View ${active.title} on Courtyard`}
+                />
+              )}
+
               {/* Video / image */}
               <div className="absolute inset-0 bg-[#0d0907]">
                 {active.videoUrl ? (
@@ -138,10 +149,16 @@ export default function HeroSpotlight({ items = [] }) {
                 <div className="absolute inset-0 bg-gradient-to-r from-[#0d0907]/60 via-transparent to-[#0d0907]/60 pointer-events-none" />
 
                 {/* Grade pill */}
-                <div className="absolute bottom-4 left-4">
+                <div className="absolute bottom-4 left-4 flex items-center gap-2">
                   <div className="px-3 py-1.5 rounded-full bg-[#0d0907]/80 backdrop-blur-sm border border-[#3d2f22] text-[#c9a67a] text-sm font-bold tracking-wide">
                     {active.grade}
                   </div>
+                  {active.courtyardUrl && (
+                    <div className="relative z-40 px-3 py-1.5 rounded-full bg-[#0d0907]/80 backdrop-blur-sm border border-[#3d2f22] text-[#9a8575] text-xs font-medium flex items-center gap-1.5 hover:text-[#c9a67a] hover:border-[#d4823a]/40 transition-all duration-200">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                      Courtyard
+                    </div>
+                  )}
                 </div>
 
                 {/* Tier glow line */}
