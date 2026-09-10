@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build:snapshot": "node scripts/build-public-snapshot.cjs",
+    "freshness": "node scripts/refresh-site-data.cjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
