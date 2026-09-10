@@ -1,5 +1,7 @@
 import FeaturedCard from './FeaturedCard'
 
+const COURTYARD_SELLER_URL = import.meta.env.VITE_COURTYARD_SELLER_URL || 'https://courtyard.io'
+
 export default function FeaturedCourtyard({ assets = [] }) {
   return (
     <section id="collection" className="relative py-24 md:py-32 overflow-hidden">
@@ -20,8 +22,7 @@ export default function FeaturedCourtyard({ assets = [] }) {
             Featured <span className="text-gradient">Pieces</span>
           </h2>
           <p className="text-canyon-muted max-w-xl mx-auto">
-            Hand-picked highlights from the vault. Each card is PSA-certified, 
-            video-rendered, and showcase-ready.
+            Hand-picked highlights from the vault. Buyable inventory is listed on Courtyard only; HOLD and museum pieces are display-only.
           </p>
         </div>
 
@@ -47,12 +48,17 @@ export default function FeaturedCourtyard({ assets = [] }) {
 
         {/* View all CTA */}
         <div className="text-center mt-12">
-          <button className="canyon-btn canyon-btn-secondary">
-            View Full Collection
+          <a
+            href={COURTYARD_SELLER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="canyon-btn canyon-btn-secondary"
+          >
+            Browse Live Courtyard Listings
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -27,6 +27,7 @@ export default function FeaturedCard({
   badgeVariant = 'accent',
   videoUrl,
   imageUrl,
+  imageAlt,
   description,
   tier = 'Featured',
   courtyardUrl,
@@ -98,7 +99,8 @@ export default function FeaturedCard({
         {hasImage && (
           <img
             src={imageUrl}
-            alt={title}
+            alt={imageAlt || `${title} ${grade || ''}`.trim()}
+            loading="lazy"
             className="absolute inset-0 w-full h-full object-contain"
           />
         )}

@@ -6,6 +6,7 @@ import TopPieces from './components/TopPieces'
 import HowItWorks from './components/HowItWorks'
 import BrandJourney from './components/BrandJourney'
 import Community from './components/Community'
+import OfferInbox from './components/OfferInbox'
 import Footer from './components/Footer'
 import { featuredAssets as mockFeatured, currentHunts as mockHunts, topPieces as mockPieces } from './data/mockData'
 
@@ -20,13 +21,16 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0d0907]">
-      <HeroSpotlight items={spotlightItems} />
-      <FeaturedCourtyard assets={spotlightItems} />
-      <WhatWereHunting hunts={currentHunts} />
-      <TopPieces pieces={topPieces} />
-      <HowItWorks />
-      <BrandJourney stats={stats} />
-      <Community />
+      <main>
+        <HeroSpotlight items={spotlightItems} />
+        <FeaturedCourtyard assets={spotlightItems} />
+        <WhatWereHunting hunts={currentHunts} />
+        <TopPieces pieces={topPieces} />
+        <HowItWorks />
+        <BrandJourney stats={stats} />
+        <OfferInbox />
+        <Community />
+      </main>
       <Footer />
     </div>
   )
