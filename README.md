@@ -95,3 +95,78 @@ A person must review outputs and explicitly approve any deploy process.
    - `site-dist` artifact (static build output)
 4. Verify the `freshness` block in `public/api/*.json` for recency.
 5. If output is acceptable, proceed with your separate manual Pages deploy flow.
+
+## Grading submissions tracker
+
+Private page at `/submissions` (alias `/track`) so a friend can log in with a
+shared access code and check current grading submissions. Works with any
+company name in the JSON (PSA, Beckett, CGC, etc.).
+
+This slice does **not** sync live PSA/Beckett APIs. Seed rows are marked
+**EXAMPLE**. The owner updates the file and redeploys Pages.
+
+The tracker does **not** write marketplace offers, accept Courtyard buys, or
+invent nets / fees / profit numbers.
+
+### Access code (fail closed)
+
+Set at build time (Cloudflare Pages env, or a local `.env` — see `.env.example`):
+
+- `VITE_SUBMISSIONS_ACCESS_CODE`
+
+If this variable is missing or blank, `/submissions` shows
+**coming soon / not configured** and does **not** fetch or render submission
+rows. That is intentional so an unconfigured deploy cannot leak the list.
+
+This is a simple shared-password UI gate baked into the frontend build. It is
+not per-user accounts. Do not put highly sensitive personal data in the JSON.
+
+The gated page sets `noindex, nofollow` (meta + `X-Robots-Tag` on
+`/submissions` and `/track`).
+
+### How to add or update a submission
+
+1. Edit `public/data/submissions.json`.
+2. Add or change a row in `submissions` using this shape:
+
+```json
+{
+  "id": "unique-row-id",
+  "example": false,
+  "company": "PSA",
+  "submissionId": "company-or-internal-id",
+  "submittedAt": "2026-04-24",
+  "itemCount": 12,
+  "status": "QC",
+  "etaDays": 140,
+  "notes": "What changed today",
+  "lastUpdated": "2026-09-11"
+}
+```
+
+Known statuses: `Preparing`, `Received`, `QC`, `Grading`, `Graded`,
+`Shipped`, `Delivered`, `On Hold`. Other status strings still render.
+
+3. Bump `lastRefreshedAt` (ISO timestamp) when you do a daily pass.
+4. Mark demo rows with `"example": true` so the UI shows an EXAMPLE badge.
+5. Validate, then commit and redeploy Pages (manual — this repo does not
+   auto-deploy):
+
+```bash
+npm run validate:submissions
+npm run build
+```
+
+### Daily refresh (owner runbook)
+
+There is no grader scraper. Daily update means:
+
+1. Open `public/data/submissions.json`.
+2. Set `status`, `etaDays`, `notes`, `itemCount`, and `lastUpdated` from the
+   company portal or your own notes.
+3. Set `lastRefreshedAt` to today.
+4. Run `npm run validate:submissions`.
+5. Commit the JSON and deploy Cloudflare Pages yourself.
+
+`etaDays` is an owner-entered estimate (for example a PSA QC ~140-day turn).
+It is not calculated from a live API.

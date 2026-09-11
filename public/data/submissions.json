@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "source": "manual-owner-json",
+  "disclaimer": "EXAMPLE data for UI demo only. Not live PSA, Beckett, or any grading-company API sync. Owner edits this file and redeploys. Do not invent marketplace nets, fees, or profit here.",
+  "lastRefreshedAt": "2026-09-11T00:00:00.000Z",
+  "submissions": [
+    {
+      "id": "example-psa-qc-140",
+      "example": true,
+      "company": "PSA",
+      "submissionId": "EXAMPLE-PSA-1048291",
+      "submittedAt": "2026-04-24",
+      "itemCount": 12,
+      "status": "QC",
+      "etaDays": 140,
+      "notes": "EXAMPLE — QC check now listing a full turn of about 140 days; getting close, so cards may return in the next couple of weeks. Not live PSA API data.",
+      "lastUpdated": "2026-09-11"
+    },
+    {
+      "id": "example-beckett-house-drop",
+      "example": true,
+      "company": "Beckett",
+      "submissionId": "EXAMPLE-BGS-HOUSE-0916",
+      "submittedAt": "2026-09-16",
+      "itemCount": 8,
+      "status": "Preparing",
+      "etaDays": null,
+      "notes": "EXAMPLE — House visit around Sep 16 to gather cards for a Beckett drop. Not submitted yet; not live Beckett API data.",
+      "lastUpdated": "2026-09-11"
+    }
+  ]
+}
