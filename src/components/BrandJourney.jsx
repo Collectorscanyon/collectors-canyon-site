@@ -1,6 +1,6 @@
 export default function BrandJourney() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section id="mission" className="relative py-24 md:py-32 overflow-hidden">
       
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-canyon-deep via-canyon-dark to-canyon-deep" />

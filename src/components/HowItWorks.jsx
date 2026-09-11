@@ -2,7 +2,7 @@ import { processSteps } from '../data/mockData'
 
 export default function HowItWorks() {
   return (
-    <section className="relative py-24 md:py-32 overflow-hidden">
+    <section id="process" className="relative py-24 md:py-32 overflow-hidden">
       
       {/* Background */}
       <div className="absolute inset-0 bg-canyon-deep" />

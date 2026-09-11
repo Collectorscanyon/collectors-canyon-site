@@ -23,8 +23,9 @@ export default function Footer() {
             {[
               { label: 'Collection', href: '#collection' },
               { label: 'Hunting', href: '#hunting' },
-              { label: 'Process', href: '#' },
-              { label: 'About', href: '#' },
+              { label: 'Process', href: '#process' },
+              { label: 'Mission', href: '#mission' },
+              { label: 'Offer Inbox', href: '#offers' },
             ].map((link) => (
               <a
                 key={link.label}

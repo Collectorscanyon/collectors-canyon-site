@@ -6,6 +6,10 @@
 # Install dependencies
 npm install
 
+# Optional: set local offer inbox + Courtyard seller URL
+# export VITE_OFFER_FORM_ENDPOINT="https://formspree.io/f/<your-form-id>"
+# export VITE_COURTYARD_SELLER_URL="https://courtyard.io/<seller-or-collection-url>"
+
 # Refresh public API JSON from in-repo source data
 npm run freshness
 
@@ -15,6 +19,37 @@ npm run build
 # Serve locally
 npm run dev
 ```
+
+## Offer inbox (inbound interest only)
+
+The public site includes an offer inbox section for inbound buyer interest on owned sell-side cards.
+
+- It does **not** execute or accept marketplace buys/offers.
+- Live Courtyard listings remain the authoritative source of availability and ask.
+- HOLD/museum pieces are display-only and not for sale from the form.
+
+### Owner configuration
+
+Set these variables in Cloudflare Pages project settings (or local shell before `npm run build`):
+
+- `VITE_OFFER_FORM_ENDPOINT`  
+  Formspree/Getform endpoint URL (example: `https://formspree.io/f/<form_id>`).
+- `VITE_COURTYARD_SELLER_URL`  
+  Public Courtyard profile/collection URL used by CTA buttons.
+
+No production deploy is automated from this repository. Perry should deploy Pages separately after review.
+
+## Local verification checklist
+
+1. `npm run dev` and open the site.
+2. Confirm **Offer Inbox** section appears with inbound-only disclaimer text.
+3. With `VITE_OFFER_FORM_ENDPOINT` unset, submit should fail closed with a configuration message.
+4. With `VITE_OFFER_FORM_ENDPOINT` set, submit should return success from your form provider.
+5. Confirm SEO basics:
+   - page title + description + OG/Twitter tags
+   - `public/robots.txt`
+   - `public/sitemap.xml`
+6. Confirm CTAs route to Courtyard and copy distinguishes live listings vs HOLD/museum display pieces.
 
 ## Daily Freshness Path (No Auto-Deploy)
 

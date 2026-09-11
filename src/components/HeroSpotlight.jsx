@@ -90,6 +90,15 @@ export default function HeroSpotlight({ items = [] }) {
         </div>
       </div>
 
+      <div className="relative z-10 text-center px-6 max-w-3xl">
+        <h1 className="text-4xl md:text-6xl font-black text-canyon-text">
+          Collectors Canyon
+        </h1>
+        <p className="text-canyon-muted mt-3 text-sm md:text-base">
+          Museum and HOLD cards are displayed for provenance and storytelling. Live buyable inventory is always on Courtyard.
+        </p>
+      </div>
+
       {/* ── Main card stage ── */}
       <div className="relative z-10 w-full max-w-2xl mx-auto px-6">
         <div
@@ -137,10 +146,19 @@ export default function HeroSpotlight({ items = [] }) {
                   </>
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#1e1812] to-[#0d0907]">
-                    <div className="text-center">
-                      <div className="text-7xl mb-4">{active.emoji || '🃏'}</div>
-                      <div className="text-sm text-[#6b5548]">No preview available</div>
-                    </div>
+                    {active.imageUrl ? (
+                      <img
+                        src={active.imageUrl}
+                        alt={active.imageAlt || `${active.title || 'Featured card'} ${active.grade || ''}`.trim()}
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-contain"
+                      />
+                    ) : (
+                      <div className="text-center">
+                        <div className="text-7xl mb-4">{active.emoji || '🃏'}</div>
+                        <div className="text-sm text-[#6b5548]">No preview available</div>
+                      </div>
+                    )}
                   </div>
                 )}
 
@@ -248,11 +266,11 @@ export default function HeroSpotlight({ items = [] }) {
       <div className="relative z-10 mt-10 flex flex-wrap items-center justify-center gap-4">
         <a href="#collection" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-[#d4823a] to-[#e89a52] text-[#0d0907] shadow-[0_4px_20px_rgba(212,130,58,0.35)] hover:shadow-[0_8px_30px_rgba(212,130,58,0.5)] hover:-translate-y-0.5 transition-all duration-300">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-          Explore the Collection
+          View Spotlight Cards
         </a>
-        <a href="#hunting" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm bg-transparent text-[#c9a67a] border border-[rgba(201,166,122,0.3)] hover:bg-[rgba(201,166,122,0.1)] hover:border-[rgba(201,166,122,0.5)] hover:-translate-y-0.5 transition-all duration-300">
+        <a href="#offers" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm bg-transparent text-[#c9a67a] border border-[rgba(201,166,122,0.3)] hover:bg-[rgba(201,166,122,0.1)] hover:border-[rgba(201,166,122,0.5)] hover:-translate-y-0.5 transition-all duration-300">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-          See What We're Hunting
+          Submit Interest
         </a>
       </div>
 
