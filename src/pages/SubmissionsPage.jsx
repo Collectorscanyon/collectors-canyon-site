@@ -213,13 +213,13 @@ function GateCard({ code, error, onChange, onSubmit }) {
         One code for friends checking current submissions. This is a simple gate,
         not individual logins.
       </p>
-      <form onSubmit={onSubmit} className="space-y-4">
+      <form onSubmit={onSubmit} className="space-y-4" autoComplete="off">
         <label className="block">
           <span className="sr-only">Access code</span>
           <input
             type="password"
-            name="access-code"
-            autoComplete="current-password"
+            name="submissions-access-code"
+            autoComplete="off"
             value={code}
             onChange={(event) => onChange(event.target.value)}
             placeholder="Access code"
