@@ -34,6 +34,12 @@ export default function Footer() {
                 {link.label}
               </a>
             ))}
+            <a
+              href="/submissions"
+              className="text-sm text-canyon-dim hover:text-canyon-accent transition-colors duration-200"
+            >
+              Submissions
+            </a>
           </nav>
         </div>
 

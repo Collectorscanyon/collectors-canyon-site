@@ -6,6 +6,7 @@
   "scripts": {
     "build:snapshot": "node scripts/build-public-snapshot.cjs",
     "freshness": "node scripts/refresh-site-data.cjs",
+    "validate:submissions": "node scripts/validate-submissions.cjs",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"

@@ -56,12 +56,21 @@ export default function Community() {
           ))}
         </div>
 
-        {/* Coming soon note */}
-        <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-canyon-elevated/60 border border-canyon-border text-sm text-canyon-dim">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-          </svg>
-          More community features coming soon
+        <div className="flex flex-col items-center gap-4">
+          <a
+            href="/submissions"
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-canyon-elevated/60 border border-canyon-border text-sm text-canyon-muted hover:text-canyon-text hover:border-canyon-accent/40 transition-colors"
+          >
+            Track grading submissions
+          </a>
+
+          {/* Coming soon note */}
+          <div className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-canyon-elevated/60 border border-canyon-border text-sm text-canyon-dim">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+            </svg>
+            More community features coming soon
+          </div>
         </div>
       </div>
     </section>

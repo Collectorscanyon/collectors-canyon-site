@@ -16,3 +16,15 @@
   X-Content-Type-Options: nosniff
   X-Frame-Options: DENY
   Referrer-Policy: strict-origin-when-cross-origin
+
+/submissions
+  X-Robots-Tag: noindex, nofollow
+
+/submissions/
+  X-Robots-Tag: noindex, nofollow
+
+/track
+  X-Robots-Tag: noindex, nofollow
+
+/track/
+  X-Robots-Tag: noindex, nofollow

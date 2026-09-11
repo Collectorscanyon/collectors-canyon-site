@@ -7,10 +7,21 @@ import HowItWorks from './components/HowItWorks'
 import BrandJourney from './components/BrandJourney'
 import Community from './components/Community'
 import Footer from './components/Footer'
+import SubmissionsPage from './pages/SubmissionsPage'
 import { featuredAssets as mockFeatured, currentHunts as mockHunts, topPieces as mockPieces } from './data/mockData'
 
+function isSubmissionsPath(pathname = window.location.pathname) {
+  const path = pathname.replace(/\/+$/, '') || '/'
+  return path === '/submissions' || path === '/track'
+}
+
 function App() {
+  const onTracker = isSubmissionsPath()
   const { data, loading } = useSnapshot()
+
+  if (onTracker) {
+    return <SubmissionsPage />
+  }
 
   // Use live spotlight items for the hero rotator, fall back to mock featured for other sections
   const spotlightItems = data?.featuredAssets || mockFeatured

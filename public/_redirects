@@ -1,3 +1,9 @@
+# SPA fallbacks for the grading submissions tracker
+/submissions /index.html 200
+/submissions/ /index.html 200
+/track /index.html 200
+/track/ /index.html 200
+
 # Cloudflare Pages build config
 # collectors-canyon
 
