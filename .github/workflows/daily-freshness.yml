@@ -2,9 +2,10 @@ name: Daily Freshness Check
 
 on:
   workflow_dispatch:
-  schedule:
-    # Daily at 13:17 UTC. Keeps public data and build output fresh for review.
-    - cron: '17 13 * * *'
+  # Disabled 2026-09-30: 8+ consecutive scheduled failures; re-enable after the freshness script is fixed.
+  # schedule:
+  #   # Daily at 13:17 UTC. Keeps public data and build output fresh for review.
+  #   - cron: '17 13 * * *'
 
 permissions:
   contents: read
