@@ -1,0 +1,31 @@
+name: Add to project
+
+on:
+  issues:
+    types: [opened]
+  pull_request:
+    types: [opened]
+
+# Adds new issues and pull requests to the Collectors Canyon Fleet
+# Projects v2 board. Does not touch Project #1 (ECE).
+#
+# This workflow will not succeed until:
+# 1. Perry runs on the box: gh auth refresh -s project,read:project
+#    so the "Collectors Canyon Fleet" board can be created (the current
+#    token is missing those scopes).
+# 2. After the board exists, set repository variable FLEET_PROJECT_URL
+#    to that board URL (https://github.com/users/Collectorscanyon/projects/<n>).
+#    Do not set it to Project #1.
+# 3. Set repository secret PROJECT_TOKEN to a PAT with the `project`
+#    scope (and access to this repo). The default GITHUB_TOKEN cannot
+#    add items to a user-owned Projects v2 board.
+
+jobs:
+  add-to-project:
+    name: Add to Fleet project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@v2.0.1
+        with:
+          project-url: ${{ vars.FLEET_PROJECT_URL }}
+          github-token: ${{ secrets.PROJECT_TOKEN }}
